@@ -1,0 +1,10 @@
+---
+title: Multiply ApsimX files via Models.exe
+author: Frank
+date: '2020-03-13'
+slug: multiply-apsimx-files-via-models-exe
+categories:
+  - apsimx
+tags:
+  - tricks
+---
