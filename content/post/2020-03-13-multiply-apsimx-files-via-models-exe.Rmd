@@ -8,3 +8,49 @@ categories:
 tags:
   - tricks
 ---
+
+
+# Driver
+
+Although the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large `.apsimx` file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small `.apsimx` files that require less CPU time are ideal so that the HPC can run small jobs parallel within a relative short time. A various solutions have been developed to cater the need of multiply small `.apsimx` files in R, Python and C#. However, they are tailored case by case. ApsimNG has a built in feature called `/Edit` can perform such tasks via command line and configuration files. The feature is still under development but it is going to be very useful for people who'd like to run simulations parallel. 
+
+# ApsimX built in feature in command line 
+
+## Step by step in Window powershell
+
+1. A compiled version of APSIM next generation.   
+2. An executable file `Models.exe` should be located in the `Bin` directory.  
+3. Run `.\Bin\Models.exe` in command line will trigger the help documentation.  
+4. **`/Edit <PathToConfigFile>`**  
+  **`Edits the .apsimx file. Path to a config file must be specified which contains lines of parameters to change in the form 'path = value'`**
+
+5. The command requires two 
+
+```
+                  "$type": "Models.Weather, Models",
+                  "FileName": "\"C:\\Data\\Master\\01raw-data\\ClimateAndObserved\\lincoln.met\"",
+                  "ExcelWorkSheetName": null,
+                  "Name": "Weather",
+                  "Children": [],
+                  "IncludeInDocumentation": true,
+                  "Enabled": true,
+                  "ReadOnly": false
+```
+
+## Linux 
+
+Coming 
+
+
+
+# Other solutions for multiply `.apsimx` files 
+
+Except C#, the R and Python solutions requires specific tweaks to suit for different purposes. Will briefly describe how these solutions works in this section.  
+
+## R solution 
+
+
+## Python solution 
+
+
+## C# solution 

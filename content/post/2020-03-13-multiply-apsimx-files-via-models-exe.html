@@ -13,3 +13,49 @@ tags:
 <script src="/rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
 
 
+<div id="driver" class="section level1">
+<h1>Driver</h1>
+<p>Although the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large <code>.apsimx</code> file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small <code>.apsimx</code> files that require less CPU time are ideal so that the HPC can run small jobs parallel within a relative short time. A various solutions have been developed to cater the need of multiply small <code>.apsimx</code> files in R, Python and C#. However, they are tailored case by case. ApsimNG has a built in feature called <code>/Edit</code> can perform such tasks via command line and configuration files. The feature is still under development but it is going to be very useful for people who’d like to run simulations parallel.</p>
+</div>
+<div id="apsimx-built-in-feature-in-command-line" class="section level1">
+<h1>ApsimX built in feature in command line</h1>
+<div id="step-by-step-in-window-powershell" class="section level2">
+<h2>Step by step in Window powershell</h2>
+<ol style="list-style-type: decimal">
+<li><p>A compiled version of APSIM next generation.<br />
+</p></li>
+<li><p>An executable file <code>Models.exe</code> should be located in the <code>Bin</code> directory.<br />
+</p></li>
+<li><p>Run <code>.\Bin\Models.exe</code> in command line will trigger the help documentation.<br />
+</p></li>
+<li><p><strong><code>/Edit &lt;PathToConfigFile&gt;</code></strong><br />
+<strong><code>Edits the .apsimx file. Path to a config file must be specified which contains lines of parameters to change in the form 'path = value'</code></strong></p></li>
+<li><p>The command requires two</p></li>
+</ol>
+<pre><code>                  &quot;$type&quot;: &quot;Models.Weather, Models&quot;,
+                  &quot;FileName&quot;: &quot;\&quot;C:\\Data\\Master\\01raw-data\\ClimateAndObserved\\lincoln.met\&quot;&quot;,
+                  &quot;ExcelWorkSheetName&quot;: null,
+                  &quot;Name&quot;: &quot;Weather&quot;,
+                  &quot;Children&quot;: [],
+                  &quot;IncludeInDocumentation&quot;: true,
+                  &quot;Enabled&quot;: true,
+                  &quot;ReadOnly&quot;: false</code></pre>
+</div>
+<div id="linux" class="section level2">
+<h2>Linux</h2>
+<p>Coming</p>
+</div>
+</div>
+<div id="other-solutions-for-multiply-.apsimx-files" class="section level1">
+<h1>Other solutions for multiply <code>.apsimx</code> files</h1>
+<p>Except C#, the R and Python solutions requires specific tweaks to suit for different purposes. Will briefly describe how these solutions works in this section.</p>
+<div id="r-solution" class="section level2">
+<h2>R solution</h2>
+</div>
+<div id="python-solution" class="section level2">
+<h2>Python solution</h2>
+</div>
+<div id="c-solution" class="section level2">
+<h2>C# solution</h2>
+</div>
+</div>

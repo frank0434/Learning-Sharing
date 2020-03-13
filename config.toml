@@ -1,23 +1,31 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "A Hugo website"
+title = "A documentation website"
 theme = "hugo-lithium"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+enableEmoji = true
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
 
 [[menu.main]]
+    name = "Posts"
+    url = "/"
+    weight = 1
+[[menu.main]]
     name = "About"
     url = "/about/"
 [[menu.main]]
     name = "GitHub"
-    url = "https://github.com/rstudio/blogdown"
+    url = "https://github.com/frank0434/ApsimXLearn"
 [[menu.main]]
     name = "Twitter"
-    url = "https://twitter.com/rstudio"
+    url = "https://twitter.com/frank0434"
+[[menu.main]]
+    name = "Linkedin"
+    url = "https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/"
 
 [params]
     description = "A website built through Hugo and blogdown."
@@ -34,9 +42,4 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     # path to the favicon, under "static"
     favicon = "favicon.ico"
 
-    [params.logo]
-    url = "logo.png"
-    width = 50
-    height = 50
-    alt = "Logo"
 
