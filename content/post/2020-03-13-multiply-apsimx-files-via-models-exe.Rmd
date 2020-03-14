@@ -7,35 +7,56 @@ categories:
   - apsimx
 tags:
   - tricks
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 
-# Driver
+# Motivation
 
-Although the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large `.apsimx` file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small `.apsimx` files that require less CPU time are ideal so that the HPC can run small jobs parallel within a relative short time. A various solutions have been developed to cater the need of multiply small `.apsimx` files in R, Python and C#. However, they are tailored case by case. ApsimNG has a built in feature called `/Edit` can perform such tasks via command line and configuration files. The feature is still under development but it is going to be very useful for people who'd like to run simulations parallel. 
+Although the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large `.apsimx` file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small `.apsimx` files that require less CPU time are desirable so that the HPC can run small jobs parallel within a relative short time. A various solutions have been developed to cater the need of multiplying small `.apsimx` files in R, Python and C#. However, they are tailored case by case. ApsimNG has a built in feature, `/Edit`, can perform such task in command line. 
 
-# ApsimX built in feature in command line 
+_Note:_ This documentation is for models in the **prototype** stages on a custom build ApsimNG.  
+
+# ApsimNG built in feature in command line 
 
 ## Step by step in Window powershell
 
 1. A compiled version of APSIM next generation.   
-2. An executable file `Models.exe` should be located in the `Bin` directory.  
-3. Run `.\Bin\Models.exe` in command line will trigger the help documentation.  
-4. **`/Edit <PathToConfigFile>`**  
+
+2. An executable file `Models.exe` can be found in the `Bin` directory.  
+
+3. Run `.\Bin\Models.exe` in command line will trigger the help documentation as below   
+
+  **`/Edit <PathToConfigFile>`**  
   **`Edits the .apsimx file. Path to a config file must be specified which contains lines of parameters to change in the form 'path = value'`**
+  
+4. The command requires two inputs:  
 
-5. The command requires two 
+  a. The `.apsimx` file that need to multiplied. 
+  b. A configuration file contains the parameter address with associated values to be modified.   
+  
+5. To construct the configuration file, we need to identify the absolute path to the wanted nodes. The easiest way is using the user interface (UI) to copy the path to particular nodes. For example, we can right click the `clock` node and select the `copy path to node` or use the short cut key shows in the snapshot 1. 
 
+![Snapshot 1](/post/2020-03-13-multiply-apsimx-files-via-models-exe_files/copynode.PNG){width=80% height=80%}  
+
+
+6. We can paste the path to a plain text file. To change specific parameter values, we still need to define the name of the parameter. For instance, we need to use `.Start` to instruct the absolute path address for modifying the clock start date. The updated values can be placed after the equal sign with the same format in the `.apsimx` file. See an example of formatting the configuration file. `Notepad++` is recommended for Windows user to search the exact key - value pair to track the target parameters. Please be aware that no quotation is needed. The current version of `/Edit` feature does not like `.`(dot) on the right hand side (RHS). For example, there are two `.` in the last line of the configuration file. First one is the relative path to the `.met` file and the second one is the file extension. Error messages will be reported in this situation. One way to work around it is to use absolute path and put a `bland space` in between `lincoln` and `.met`. 
+
+``` Get-Content .\config20200312.txt```
 ```
-                  "$type": "Models.Weather, Models",
-                  "FileName": "\"C:\\Data\\Master\\01raw-data\\ClimateAndObserved\\lincoln.met\"",
-                  "ExcelWorkSheetName": null,
-                  "Name": "Weather",
-                  "Children": [],
-                  "IncludeInDocumentation": true,
-                  "Enabled": true,
-                  "ReadOnly": false
+.Simulations.New Zealand.Iversen_12.Simulation3.clock.Start = 1970-02-03T00:00:00
+.Simulations.New Zealand.Iversen_12.Simulation3.clock.End = 1980-02-03T00:00:00
+.Simulations.New Zealand.Iversen_12.Simulation3.paddock.Soil.Physical.LucerneSoil.KL = 1,2,3,4,5,6,7,8,9,0
+.Simulations.Replacements.Lucerne.Leaf.Photosynthesis.FW.XYPairs.X = 2,3,4,5
+.Simulations.New Zealand.Iversen_12.Simulation3.Weather.FileName = .\01raw-data\ClimateAndObserved\lincoln.met
 ```
+
+More discussion about this feature can be find in this [github issue](https://github.com/APSIMInitiative/ApsimX/issues/4905)
+
+7. To optimise the power of `/Edit`. We believe that multiple configuration files can be automatically generated by additional tools such as R, Python and C#. A simple for loop can be written to iterate over all configuration files and output corresponding modified `.apsimx` files. A automated workflow will be discussed once the `/Edit` feature stablised. 
+
 
 ## Linux 
 
@@ -45,12 +66,17 @@ Coming
 
 # Other solutions for multiply `.apsimx` files 
 
-Except C#, the R and Python solutions requires specific tweaks to suit for different purposes. Will briefly describe how these solutions works in this section.  
+Except C#, the R and Python solutions requires specific tweaks to suit for different purposes. Will briefly describe how these solutions works in this section. In general, the logic in all solutions are the same as the build in `/Edit` feature, which is searching and updating. Sepecifically, customised functions are developed to perform searching the path of wanted nodes and replacing the value in those nodes by new values. 
 
 ## R solution 
 
+Coming soon
 
 ## Python solution 
 
 
+Coming soon
+
 ## C# solution 
+
+Coming soon

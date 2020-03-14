@@ -7,39 +7,70 @@ categories:
   - apsimx
 tags:
   - tricks
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
-<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
-<script src="/rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
 
-
-<div id="driver" class="section level1">
-<h1>Driver</h1>
-<p>Although the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large <code>.apsimx</code> file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small <code>.apsimx</code> files that require less CPU time are ideal so that the HPC can run small jobs parallel within a relative short time. A various solutions have been developed to cater the need of multiply small <code>.apsimx</code> files in R, Python and C#. However, they are tailored case by case. ApsimNG has a built in feature called <code>/Edit</code> can perform such tasks via command line and configuration files. The feature is still under development but it is going to be very useful for people who’d like to run simulations parallel.</p>
+<div id="TOC">
+<ul>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#apsimng-built-in-feature-in-command-line">ApsimNG built in feature in command line</a><ul>
+<li><a href="#step-by-step-in-window-powershell">Step by step in Window powershell</a></li>
+<li><a href="#linux">Linux</a></li>
+</ul></li>
+<li><a href="#other-solutions-for-multiply-.apsimx-files">Other solutions for multiply <code>.apsimx</code> files</a><ul>
+<li><a href="#r-solution">R solution</a></li>
+<li><a href="#python-solution">Python solution</a></li>
+<li><a href="#c-solution">C# solution</a></li>
+</ul></li>
+</ul>
 </div>
-<div id="apsimx-built-in-feature-in-command-line" class="section level1">
-<h1>ApsimX built in feature in command line</h1>
+
+<div id="motivation" class="section level1">
+<h1>Motivation</h1>
+<p>Although the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large <code>.apsimx</code> file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small <code>.apsimx</code> files that require less CPU time are desirable so that the HPC can run small jobs parallel within a relative short time. A various solutions have been developed to cater the need of multiplying small <code>.apsimx</code> files in R, Python and C#. However, they are tailored case by case. ApsimNG has a built in feature, <code>/Edit</code>, can perform such task in command line.</p>
+<p><em>Note:</em> This documentation is for models in the <strong>prototype</strong> stages on a custom build ApsimNG.</p>
+</div>
+<div id="apsimng-built-in-feature-in-command-line" class="section level1">
+<h1>ApsimNG built in feature in command line</h1>
 <div id="step-by-step-in-window-powershell" class="section level2">
 <h2>Step by step in Window powershell</h2>
 <ol style="list-style-type: decimal">
-<li><p>A compiled version of APSIM next generation.<br />
-</p></li>
-<li><p>An executable file <code>Models.exe</code> should be located in the <code>Bin</code> directory.<br />
-</p></li>
-<li><p>Run <code>.\Bin\Models.exe</code> in command line will trigger the help documentation.<br />
-</p></li>
-<li><p><strong><code>/Edit &lt;PathToConfigFile&gt;</code></strong><br />
-<strong><code>Edits the .apsimx file. Path to a config file must be specified which contains lines of parameters to change in the form 'path = value'</code></strong></p></li>
-<li><p>The command requires two</p></li>
+<li><p>A compiled version of APSIM next generation.</p></li>
+<li><p>An executable file <code>Models.exe</code> can be found in the <code>Bin</code> directory.</p></li>
+<li><p>Run <code>.\Bin\Models.exe</code> in command line will trigger the help documentation as below</p></li>
 </ol>
-<pre><code>                  &quot;$type&quot;: &quot;Models.Weather, Models&quot;,
-                  &quot;FileName&quot;: &quot;\&quot;C:\\Data\\Master\\01raw-data\\ClimateAndObserved\\lincoln.met\&quot;&quot;,
-                  &quot;ExcelWorkSheetName&quot;: null,
-                  &quot;Name&quot;: &quot;Weather&quot;,
-                  &quot;Children&quot;: [],
-                  &quot;IncludeInDocumentation&quot;: true,
-                  &quot;Enabled&quot;: true,
-                  &quot;ReadOnly&quot;: false</code></pre>
+<p><strong><code>/Edit &lt;PathToConfigFile&gt;</code></strong><br />
+<strong><code>Edits the .apsimx file. Path to a config file must be specified which contains lines of parameters to change in the form 'path = value'</code></strong></p>
+<ol start="4" style="list-style-type: decimal">
+<li>The command requires two inputs:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>The <code>.apsimx</code> file that need to multiplied.</li>
+<li>A configuration file contains the parameter address with associated values to be modified.</li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li>To construct the configuration file, we need to identify the absolute path to the wanted nodes. The easiest way is using the user interface (UI) to copy the path to particular nodes. For example, we can right click the <code>clock</code> node and select the <code>copy path to node</code> or use the short cut key shows in the snapshot 1.</li>
+</ol>
+<div class="figure">
+<img src="/post/2020-03-13-multiply-apsimx-files-via-models-exe_files/copynode.PNG" alt="Snapshot 1" style="width:80.0%;height:80.0%" />
+<p class="caption">Snapshot 1</p>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>We can paste the path to a plain text file. To change specific parameter values, we still need to define the name of the parameter. For instance, we need to use <code>.Start</code> to instruct the absolute path address for modifying the clock start date. The updated values can be placed after the equal sign with the same format in the <code>.apsimx</code> file. See an example of formatting the configuration file. <code>Notepad++</code> is recommended for Windows user to search the exact key - value pair to track the target parameters. Please be aware that no quotation is needed. The current version of <code>/Edit</code> feature does not like <code>.</code>(dot) on the right hand side (RHS). For example, there are two <code>.</code> in the last line of the configuration file. First one is the relative path to the <code>.met</code> file and the second one is the file extension. Error messages will be reported in this situation. One way to work around it is to use absolute path and put a <code>bland space</code> in between <code>lincoln</code> and <code>.met</code>.</li>
+</ol>
+<p><code>Get-Content .\config20200312.txt</code></p>
+<pre><code>.Simulations.New Zealand.Iversen_12.Simulation3.clock.Start = 1970-02-03T00:00:00
+.Simulations.New Zealand.Iversen_12.Simulation3.clock.End = 1980-02-03T00:00:00
+.Simulations.New Zealand.Iversen_12.Simulation3.paddock.Soil.Physical.LucerneSoil.KL = 1,2,3,4,5,6,7,8,9,0
+.Simulations.Replacements.Lucerne.Leaf.Photosynthesis.FW.XYPairs.X = 2,3,4,5
+.Simulations.New Zealand.Iversen_12.Simulation3.Weather.FileName = .\01raw-data\ClimateAndObserved\lincoln.met</code></pre>
+<p>More discussion about this feature can be find in this <a href="https://github.com/APSIMInitiative/ApsimX/issues/4905">github issue</a></p>
+<ol start="7" style="list-style-type: decimal">
+<li>To optimise the power of <code>/Edit</code>. We believe that multiple configuration files can be automatically generated by additional tools such as R, Python and C#. A simple for loop can be written to iterate over all configuration files and output corresponding modified <code>.apsimx</code> files. A automated workflow will be discussed once the <code>/Edit</code> feature stablised.</li>
+</ol>
 </div>
 <div id="linux" class="section level2">
 <h2>Linux</h2>
@@ -48,14 +79,17 @@ tags:
 </div>
 <div id="other-solutions-for-multiply-.apsimx-files" class="section level1">
 <h1>Other solutions for multiply <code>.apsimx</code> files</h1>
-<p>Except C#, the R and Python solutions requires specific tweaks to suit for different purposes. Will briefly describe how these solutions works in this section.</p>
+<p>Except C#, the R and Python solutions requires specific tweaks to suit for different purposes. Will briefly describe how these solutions works in this section. In general, the logic in all solutions are the same as the build in <code>/Edit</code> feature, which is searching and updating. Sepecifically, customised functions are developed to perform searching the path of wanted nodes and replacing the value in those nodes by new values.</p>
 <div id="r-solution" class="section level2">
 <h2>R solution</h2>
+<p>Coming soon</p>
 </div>
 <div id="python-solution" class="section level2">
 <h2>Python solution</h2>
+<p>Coming soon</p>
 </div>
 <div id="c-solution" class="section level2">
 <h2>C# solution</h2>
+<p>Coming soon</p>
 </div>
 </div>
