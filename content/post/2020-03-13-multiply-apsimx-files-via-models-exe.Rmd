@@ -64,7 +64,7 @@ Coming
 
 
 
-# Other solutions for multiply `.apsimx` files 
+# Other solutions for multiplying `.apsimx` files 
 
 Except C#, the R and Python solutions requires specific tweaks to suit for different purposes. Will briefly describe how these solutions works in this section. In general, the logic in all solutions are the same as the build in `/Edit` feature, which is searching and updating. Sepecifically, customised functions are developed to perform searching the path of wanted nodes and replacing the value in those nodes by new values. 
 
