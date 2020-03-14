@@ -1,0 +1,32 @@
+---
+title: Git submodule to use Hugo theme on githubPage
+author: Frank
+date: '2020-03-14'
+slug: git-submodule-to-have-the-best-from-both-githubpage-and-hugo-theme
+categories:
+  - Git
+  - Website theme
+tags:
+  - tricks
+emoji: yes
+output:
+  blogdown::html_page:
+    toc: yes
+---
+
+
+# Driver
+
+Coming soon 
+:joy:  
+
+# Ingredients 
+
+Coming soon
+:joy:
+
+# Reference link 
+
+
+Coming soon
+:joy:
