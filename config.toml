@@ -11,7 +11,7 @@ enableEmoji = true
     post = "/:year/:month/:day/:slug/"
 
 [[menu.main]]
-    name = "ApsimNG"
+    name = "Posts"
     url = "/"
     weight = 1
 [[menu.main]]
