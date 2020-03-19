@@ -1,0 +1,18 @@
+---
+title: holdingdock
+author: Frank
+date: '2020-03-19'
+slug: holdingdock
+draft: true
+categories:
+  - draft
+tags: []
+emoji: yes
+output:
+  blogdown::html_page:
+    toc: yes
+---
+
+
+
+I like document the random tips and tricks I picked up along the way so I can have some references for the future self. When I start to learn how to use Apsim Next Generation, I found it is diffcult to learn only by myself simply becasue the learning materials of ApsimNG are scatterred around and every user case could be different. So the idea of using a blog to record all the problem I encountered couldn't wait any more. 

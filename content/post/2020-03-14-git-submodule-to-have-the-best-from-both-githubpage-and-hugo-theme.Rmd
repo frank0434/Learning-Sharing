@@ -17,14 +17,21 @@ output:
 
 # Driver
 
-Coming soon 
-:joy:  
+Originally, I was keen to just use the githubPage approach to do this documentation blog because it feels easy. Then, the Yihui's book _Blogdown_ introduces this amazing **HUGO** themes. I became greed and want to have the best of both worlds although I realised that githubPage is not the number one recommendation for delopying the website when have half way through the book. However, the stubbornness kicked in and the desire of using githubPage got the vote. Initially, [Yihui's suggestion](https://bookdown.org/yihui/blogdown/github-pages.html) had been followed. But soon the problem of version control the nested git repository became very tricky. The [documentation](https://gohugo.io/hosting-and-deployment/hosting-on-github/) on the hugo website come in to resecue. 
+
 
 # Ingredients 
 
-Coming soon
-:joy:
+R
+Rstudio
+rmarkdown
+blogdown
+knitr
 
+
+
+
+# Step by Step reciept
 # Reference link 
 
 
