@@ -19,19 +19,99 @@ output:
 
 Originally, I was keen to just use the githubPage approach to do this documentation blog because it feels easy. Then, the Yihui's book _Blogdown_ introduces this amazing **HUGO** themes. I became greed and want to have the best of both worlds although I realised that githubPage is not the number one recommendation for delopying the website when have half way through the book. However, the stubbornness kicked in and the desire of using githubPage got the vote. Initially, [Yihui's suggestion](https://bookdown.org/yihui/blogdown/github-pages.html) had been followed. But soon the problem of version control the nested git repository became very tricky. The [documentation](https://gohugo.io/hosting-and-deployment/hosting-on-github/) on the hugo website come in to resecue. 
 
+# The idea
+
+The idea is to use a nested repository sturcture to have multiple `submodule(s)` in one parent repository. 
 
 # Ingredients 
 
-R
-Rstudio
-rmarkdown
-blogdown
-knitr
+## Software and Libraries
 
+| | |
+|:---|:----|
+|git | 2.16.2.windows.1|
+|R version | 3.6.2 |
+|Rstudio |1.2.1335|
+|Rmarkdown |2.1|
+|blogdown |0.18|
+|knitr |1.27|
 
+## Github repositories 
 
+Two repos will be needed for this post.   
+One for having the project content - where you hold the materials for posts and themes.   
+The other one to host all the public materials that have been rendered and ready to display on the website. 
+
+For example, the repo [ApsimXLearn](https://github.com/frank0434/ApsimXLearn) contains all the themes and raw `.Rmd` files to build the posts. 
+
+The repo [frank0434.github.io](https://github.com/frank0434/frank0434.github.io) has only the rendered materials to show on the [website](https://frank0434.github.io/). 
 
 # Step by Step reciept
+
+
+```
+\---ApsimXLearn
+    +---.Rproj.user
+    |
+    +---content
+    |   \---post
+    +---public
+    |   +---2020
+    |   |   \---03
+    |   |       +---10
+    |   |       |   \---apism-next-generation-custom-build-101
+    |   |       +---13
+    |   |       |   \---multiply-apsimx-files-via-models-exe
+    |   |       +---14
+    |   |       |   \---git-submodule-to-have-the-best-from-both-githubpage-and-hugo-theme
+    |   +---about
+    |   +---categories
+    |   |   +---apsimx
+    |   |   +---build
+    |   |   +---draft
+    |   |   +---errors
+    |   |   +---git
+    |   |   +---r
+    |   |   \---website-theme
+    |   +---css
+    |   +---fonts
+    |   +---frank0434.github.io
+    |   +---images
+    |   +---js
+    |   +---post
+    |   |   +---2020-03-10-apism-next-generation-custom-build-101_files
+    |   |   \---2020-03-13-multiply-apsimx-files-via-models-exe_files
+    |   +---rmarkdown-libs
+    |   |   +---elevate-section-attrs
+    |   |   \---jquery
+    |   \---tags
+    |       +---plot
+    |       +---r-markdown
+    |       +---regression
+    |       \---tricks
+    +---static
+    |   +---post
+    |   |   \---2020-03-13-multiply-apsimx-files-via-models-exe_files
+    |   \---rmarkdown-libs
+    |       +---elevate-section-attrs
+    |       \---jquery
+    \---themes
+        \---hugo-lithium
+            +---archetypes
+            +---exampleSite
+            |   +---content
+            |   |   \---post
+            |   \---static
+            +---layouts
+            |   +---partials
+            |   \---_default
+            \---static
+                +---css
+                +---fonts
+                +---images
+                \---js
+```
+
 # Reference link 
 
 

@@ -18,7 +18,11 @@ output:
 <div id="TOC">
 <ul>
 <li><a href="#driver">Driver</a></li>
-<li><a href="#ingredients">Ingredients</a></li>
+<li><a href="#the-idea">The idea</a></li>
+<li><a href="#ingredients">Ingredients</a><ul>
+<li><a href="#software-and-libraries">Software and Libraries</a></li>
+<li><a href="#github-repositories">Github repositories</a></li>
+</ul></li>
 <li><a href="#step-by-step-reciept">Step by Step reciept</a></li>
 <li><a href="#reference-link">Reference link</a></li>
 </ul>
@@ -28,16 +32,114 @@ output:
 <h1>Driver</h1>
 <p>Originally, I was keen to just use the githubPage approach to do this documentation blog because it feels easy. Then, the Yihui’s book <em>Blogdown</em> introduces this amazing <strong>HUGO</strong> themes. I became greed and want to have the best of both worlds although I realised that githubPage is not the number one recommendation for delopying the website when have half way through the book. However, the stubbornness kicked in and the desire of using githubPage got the vote. Initially, <a href="https://bookdown.org/yihui/blogdown/github-pages.html">Yihui’s suggestion</a> had been followed. But soon the problem of version control the nested git repository became very tricky. The <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">documentation</a> on the hugo website come in to resecue.</p>
 </div>
+<div id="the-idea" class="section level1">
+<h1>The idea</h1>
+<p>The idea is to use a nested repository sturcture to have multiple <code>submodule(s)</code> in one parent repository.</p>
+</div>
 <div id="ingredients" class="section level1">
 <h1>Ingredients</h1>
-<p>R
-Rstudio
-rmarkdown
-blogdown
-knitr</p>
+<div id="software-and-libraries" class="section level2">
+<h2>Software and Libraries</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">git</td>
+<td align="left">2.16.2.windows.1</td>
+</tr>
+<tr class="even">
+<td align="left">R version</td>
+<td align="left">3.6.2</td>
+</tr>
+<tr class="odd">
+<td align="left">Rstudio</td>
+<td align="left">1.2.1335</td>
+</tr>
+<tr class="even">
+<td align="left">Rmarkdown</td>
+<td align="left">2.1</td>
+</tr>
+<tr class="odd">
+<td align="left">blogdown</td>
+<td align="left">0.18</td>
+</tr>
+<tr class="even">
+<td align="left">knitr</td>
+<td align="left">1.27</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="github-repositories" class="section level2">
+<h2>Github repositories</h2>
+<p>Two repos will be needed for this post.<br />
+One for having the project content - where you hold the materials for posts and themes.<br />
+The other one to host all the public materials that have been rendered and ready to display on the website.</p>
+<p>For example, the repo <a href="https://github.com/frank0434/ApsimXLearn">ApsimXLearn</a> contains all the themes and raw <code>.Rmd</code> files to build the posts.</p>
+<p>The repo <a href="https://github.com/frank0434/frank0434.github.io">frank0434.github.io</a> has only the rendered materials to show on the <a href="https://frank0434.github.io/">website</a>.</p>
+</div>
 </div>
 <div id="step-by-step-reciept" class="section level1">
 <h1>Step by Step reciept</h1>
+<pre><code>\---ApsimXLearn
+    +---.Rproj.user
+    |
+    +---content
+    |   \---post
+    +---public
+    |   +---2020
+    |   |   \---03
+    |   |       +---10
+    |   |       |   \---apism-next-generation-custom-build-101
+    |   |       +---13
+    |   |       |   \---multiply-apsimx-files-via-models-exe
+    |   |       +---14
+    |   |       |   \---git-submodule-to-have-the-best-from-both-githubpage-and-hugo-theme
+    |   +---about
+    |   +---categories
+    |   |   +---apsimx
+    |   |   +---build
+    |   |   +---draft
+    |   |   +---errors
+    |   |   +---git
+    |   |   +---r
+    |   |   \---website-theme
+    |   +---css
+    |   +---fonts
+    |   +---frank0434.github.io
+    |   +---images
+    |   +---js
+    |   +---post
+    |   |   +---2020-03-10-apism-next-generation-custom-build-101_files
+    |   |   \---2020-03-13-multiply-apsimx-files-via-models-exe_files
+    |   +---rmarkdown-libs
+    |   |   +---elevate-section-attrs
+    |   |   \---jquery
+    |   \---tags
+    |       +---plot
+    |       +---r-markdown
+    |       +---regression
+    |       \---tricks
+    +---static
+    |   +---post
+    |   |   \---2020-03-13-multiply-apsimx-files-via-models-exe_files
+    |   \---rmarkdown-libs
+    |       +---elevate-section-attrs
+    |       \---jquery
+    \---themes
+        \---hugo-lithium
+            +---archetypes
+            +---exampleSite
+            |   +---content
+            |   |   \---post
+            |   \---static
+            +---layouts
+            |   +---partials
+            |   \---_default
+            \---static
+                +---css
+                +---fonts
+                +---images
+                \---js</code></pre>
 </div>
 <div id="reference-link" class="section level1">
 <h1>Reference link</h1>
