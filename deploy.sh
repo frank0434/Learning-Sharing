@@ -7,4 +7,4 @@ msg="updateing site $(date)"
 git add . 
 git commit -m "$msg"
 
-git push -f origin master
+git push origin master
