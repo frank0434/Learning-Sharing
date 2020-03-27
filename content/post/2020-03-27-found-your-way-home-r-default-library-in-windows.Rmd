@@ -16,7 +16,7 @@ output:
 
 # Reason about this post
 
-Many R learner (including myself) probably came across the default R library issues in windows system, especially when you are using a company laptop/PC. There are lots of discussion about changing the default directories in R on [StackOverFlow](https://stackoverflow.com/questions/15170399/change-r-default-library-path-using-libpaths-in-rprofile-site-fails-to-work) and other [websites](https://www.accelebrate.com/library/how-to-articles/r-rstudio-library). However, I found using **Environment variables** seems the easiest way to go. 
+Many R learner (including myself) probably came across the default R library issues in windows system, especially when you are using a company laptop/PC. There are lots of discussion about changing the default directories in R on [StackOverFlow](https://stackoverflow.com/questions/15170399/change-r-default-library-path-using-libpaths-in-rprofile-site-fails-to-work) and other [websites](https://www.accelebrate.com/library/how-to-articles/r-rstudio-library). However, I found using **Environment variables** seems to be the easiest way to go. 
 
 
 # Change the default library via environment variables 
