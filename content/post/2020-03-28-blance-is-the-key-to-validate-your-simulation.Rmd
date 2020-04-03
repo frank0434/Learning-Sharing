@@ -36,7 +36,7 @@ The idea is simple, $$InputWater = OutputWater + StoredWater$$
 
 Table below shows the common variables that one should check for the water balance in simulations.   
 
-|Input| Output|State|
+|Input| Output|State (StoredWater)|
 |:---|:---|:---|
 |Precipitation | Evapotranspiration|Soil Water content|
 |Irrigation | Drainage||
@@ -81,7 +81,7 @@ However, the situations in real world might violate the logic and the agreement 
 
 Table below shows the common variables that one should check for the nitrogen balance in simulations.  
 
-|Input| Output|State|
+|Input| Output|State (StoredNitrogen)|
 |:---|:---|:---|
 |Fertiliser |Harvest plant (RemoveN)|Surface organic matter|
 |Fixation |Denitrofication|Mineral N| 
