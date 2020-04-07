@@ -1,5 +1,5 @@
 ---
-title: Blance is the key to validate ApsimX simulations
+title: Balance is the key to validate ApsimX simulations
 author: Frank
 date: '2020-03-28'
 slug: blance-is-the-key-to-validate-your-simulation
@@ -21,10 +21,6 @@ output:
 <li><a href="#water-balance">Water Balance</a></li>
 <li><a href="#nitrogen-balance">Nitrogen Balance</a></li>
 <li><a href="#biomass-balance">Biomass Balance</a></li>
-<li><a href="#checking-methods">Checking methods</a><ul>
-<li><a href="#visulisation-tool---apsimng-build-in-tools">Visulisation tool - ApsimNG build in tools</a></li>
-<li><a href="#potential-automated-validation---rpython">Potential automated validation - R/Python</a></li>
-</ul></li>
 </ul>
 </div>
 
@@ -234,15 +230,5 @@ However, the situations in real world might violate the logic and the agreement 
 <code>([Lucerne].Total.Wt)*10 as TotalPlantBiomass</code>. The conventional Apsim output unit is <span class="math inline">\(g DM/m^2\)</span>. It probably makes more sense to use <code>kg DM/ha</code>.</p></li>
 </ul>
 <p>Biomass is probably the one that agronomist care the most. However, cautions are necessary when we look at the biomass predictions because the biomass is built upon the assumptions of right water and nitrogen balances. Often, the biomass variables could reveal hidden flaws in the model. For example, it is probably make no biological sense if the root biomass of lucerne keeps accumulating over years with no sign of stablising. It would be a magic crop if the root biomass always accumulates. :joy:</p>
-</div>
-</div>
-<div id="checking-methods" class="section level1">
-<h1>Checking methods</h1>
-<p>Step by Step - will come in a separate documentation.</p>
-<div id="visulisation-tool---apsimng-build-in-tools" class="section level2">
-<h2>Visulisation tool - ApsimNG build in tools</h2>
-</div>
-<div id="potential-automated-validation---rpython" class="section level2">
-<h2>Potential automated validation - R/Python</h2>
 </div>
 </div>

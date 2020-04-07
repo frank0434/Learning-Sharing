@@ -1,5 +1,5 @@
 ---
-title: Blance is the key to validate ApsimX simulations
+title: Balance is the key to validate ApsimX simulations
 author: Frank
 date: '2020-03-28'
 slug: blance-is-the-key-to-validate-your-simulation
@@ -146,12 +146,4 @@ Table below shows the common variables that one should check for the biomass bal
 
 Biomass is probably the one that agronomist care the most. However, cautions are necessary when we look at the biomass predictions because the biomass is built upon the assumptions of right water and nitrogen balances. Often, the biomass variables could reveal hidden flaws in the model. For example, it is probably make no biological sense if the root biomass of lucerne keeps accumulating over years with no sign of stablising. It would be a magic crop if the root biomass always accumulates. :joy:  
 
-
-# Checking methods
-
-Step by Step - will come in a separate documentation. 
-
-## Visulisation tool - ApsimNG build in tools 
-
-## Potential automated validation - R/Python
 
