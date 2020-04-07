@@ -1,105 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>A documentation website</title>
-    <link>/</link>
-    <description>Recent content on A documentation website</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 05 May 2016 21:48:51 -0700</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Install R package from private repository via `token`</title>
-      <link>/2020/04/07/install-r-package-from-private-repository-via-key/</link>
-      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/07/install-r-package-from-private-repository-via-key/</guid>
-      <description>AimPrerequisiteStep by StepAimTo install a R package that is in a private repository on GitHub.
-PrerequisiteA Github account.
-The account has been authorised to access the private repository where the package is located.
-R and Rstudio. 😂
-R package devtools.
-R package usethis.Step by StepUsing a personal access token is probably the easiest way to achieve the aim, although it might not be the safest.</description>
-    </item>
-    
-    <item>
-      <title>Manual validation of ApsimNG-Lucerne </title>
-      <link>/2020/04/05/manual-validation-of-apsimng-lucerne/</link>
-      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/04/05/manual-validation-of-apsimng-lucerne/</guid>
-      <description>The caseThe software and versionVisulisation tool - ApsimNG build in toolsPotential automated validation - R/PythonThe caseApsimNG is a great tool for climate change studies once we have a comprehensive plant model with realibale climate data and detailted soil propterties. However, it will be waster of time if the simulation results make no biological sense. The validation of a model is a key step before we ran the massive simulations for climate change scenarios.</description>
-    </item>
-    
-    <item>
-      <title>Balance is the key to validate ApsimX simulations</title>
-      <link>/2020/03/28/blance-is-the-key-to-validate-your-simulation/</link>
-      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/03/28/blance-is-the-key-to-validate-your-simulation/</guid>
-      <description>IntroductionWater BalanceNitrogen BalanceBiomass BalanceIntroductionIt is critical to inspect the simulation result from a Apsim model so that we are confidence to say the model does what is expected. For a beginner, it might feel hopeless when we stare at the UI with hundreds of parameters can be modified and output. Despite the complicity of Apsim, the entire idea of simulation checking is about biologically meaningful.</description>
-    </item>
-    
-    <item>
-      <title>Found your way home - R default library in windows</title>
-      <link>/2020/03/27/found-your-way-home-r-default-library-in-windows/</link>
-      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/03/27/found-your-way-home-r-default-library-in-windows/</guid>
-      <description>Reason about this postChange the default library via environment variablesReason about this postMany R learner (including myself) probably came across the default R library issues in windows system, especially when you are using a company laptop/PC. There are lots of discussion about changing the default directories in R on StackOverFlow and other websites. However, I found using Environment variables seems to be the easiest way to go.</description>
-    </item>
-    
-    <item>
-      <title>Git submodule to use Hugo theme on githubPage</title>
-      <link>/2020/03/14/git-submodule-to-have-the-best-from-both-githubpage-and-hugo-theme/</link>
-      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/03/14/git-submodule-to-have-the-best-from-both-githubpage-and-hugo-theme/</guid>
-      <description>DriverThe ideaIngredientsSoftware and LibrariesGithub repositoriesStep by Step receiptNext stepDriverOriginally, I was keen to just use the githubPage approach to do this documentation blog because it feels easy. Then, the Yihui’s book Blogdown introduces this amazing HUGO themes. I became greed and want to have the best of both worlds although I realised that githubPage is not the number one recommendation for deploying the website when half way through the book.</description>
-    </item>
-    
-    <item>
-      <title>Multiply ApsimX files via Models.exe</title>
-      <link>/2020/03/13/multiply-apsimx-files-via-models-exe/</link>
-      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/03/13/multiply-apsimx-files-via-models-exe/</guid>
-      <description>MotivationApsimNG built in feature in command lineStep by step in Window powershellLinuxOther solutions for multiplying .apsimx filesR solutionPython solutionC# solutionMotivationAlthough the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large .apsimx file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small .</description>
-    </item>
-    
-    <item>
-      <title> Apism Next Generation Custom build 101</title>
-      <link>/2020/03/11/apism-next-generation-custom-build-101/</link>
-      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/03/11/apism-next-generation-custom-build-101/</guid>
-      <description>IngredientsHow to clone the ApsimX repositoryHow to buildIngredientsVisual Studio is essential.
-Git has been built into visual studio IDE from 2013 update 1. So not necessary to install git independently. But it is necessary to have some basic understanding of git.
-Github account to clone the repository to local machines. Github is a great platform that host all the repository for many projects.</description>
-    </item>
-    
-    <item>
-      <title>A Plain Markdown Post (The reference)</title>
-      <link>/2016/12/30/a-plain-markdown-post-the-reference/</link>
-      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
-      
-      <guid>/2016/12/30/a-plain-markdown-post-the-reference/</guid>
-      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
- You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
-      
-      <guid>/about/</guid>
-      <description>This is a documentation website for recording errors and tricks while learning the APSIM Next Generation to do model development. Some random thoughts might also come along every now and then.
-The theme was forked from jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
-    </item>
-    
-  </channel>
-</rss>
