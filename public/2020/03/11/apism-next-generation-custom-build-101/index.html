@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.68.3" />
+
+
+<title> Apism Next Generation Custom build 101 - A documentation website</title>
+<meta property="og:title" content=" Apism Next Generation Custom build 101 - A documentation website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/%3cnil%3e"
+         width=""
+         height=""
+         alt="">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/frank0434/ApsimXLearn">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/">Linkedin</a></li>
+    
+    <li><a href="https://twitter.com/frank0434">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title"> Apism Next Generation Custom build 101</h1>
+
+    
+    <span class="article-date">2020-03-11</span>
+    
+
+    <div class="article-content">
+      
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#ingredients">Ingredients</a></li>
+<li><a href="#how-to-clone-the-apsimx-repository">How to clone the ApsimX repository</a></li>
+<li><a href="#how-to-build">How to build</a></li>
+</ul>
+</div>
+
+<div id="ingredients" class="section level1">
+<h1>Ingredients</h1>
+<ul>
+<li><a href="https://visualstudio.microsoft.com/">Visual Studio</a> is essential.<br />
+</li>
+<li><a href="https://git-scm.com/">Git</a> has been built into visual studio IDE from 2013 update 1. So not necessary to install git independently. But it is necessary to have some basic understanding of git.<br />
+</li>
+<li><a href="https://github.com/">Github account</a> to clone the repository to local machines. Github is a great platform that host all the repository for many projects. <em><a href="https://happygitwithr.com/">Happy Git and Github for the useR</a></em> maybe a good starting point to learn how to use git and github, although it is a bit R-centered 😆.</li>
+</ul>
+</div>
+<div id="how-to-clone-the-apsimx-repository" class="section level1">
+<h1>How to clone the ApsimX repository</h1>
+<ol style="list-style-type: decimal">
+<li>Copy the repoitory address from the Github repository page.</li>
+</ol>
+<p><img src="/post/2020-03-10-apism-next-generation-custom-build-101_files/Annotation%202020-03-10%20133427.png" style="width:120.0%;height:120.0%" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Open Visual Studio and click the <code>Clone or check out code</code> tab on the welcome panel.</li>
+</ol>
+<p><img src="/post/2020-03-10-apism-next-generation-custom-build-101_files/img%20(4).png" style="width:100.0%;height:100.0%" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Paste the repository address to the <code>Repository location</code> and modify the <code>Local path</code> if needed.</li>
+</ol>
+<p><img src="/post/2020-03-10-apism-next-generation-custom-build-101_files/setuprepo.png" style="width:100.0%;height:100.0%" /></p>
+</div>
+<div id="how-to-build" class="section level1">
+<h1>How to build</h1>
+<ol style="list-style-type: decimal">
+<li>Once the repository has been cloned to the local storage. Double click on the bold text located under the <code>Local Git Repositories</code>.</li>
+</ol>
+<p><img src="/post/2020-03-10-apism-next-generation-custom-build-101_files/opensln.png" style="width:80.0%;height:80.0%" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>The folder will have a <code>.sln</code> file to compile the downloaded APSIM Next Generation. Double click on <code>ApsimX.sln</code> to open the solution.</li>
+</ol>
+<p><img src="/post/2020-03-10-apism-next-generation-custom-build-101_files/Annotation%202020-03-10%20095239.png" style="width:80.0%;height:80.0%" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>The shortcut key to build the solution is <strong>F6</strong>. Alternatively, the command can be found under the <code>Build</code> tag.</li>
+</ol>
+<p><img src="/post/2020-03-10-apism-next-generation-custom-build-101_files/img%20(6).png" style="width:80.0%;height:80.0%" /></p>
+<p>Easy as that. 😃</p>
+<p>PS:</p>
+<p>There are some situations that we might need to access a previous version of APSIM next generation. The strategy here is use <code>git reset/rebase</code> to go back in time. It can be troublesome becasue some older versions require the support from the <a href="https://github.com/APSIMInitiative/APSIM.Shared">APSIM.Shared</a>. To compile APSIM.Shared, the same logic applied.</p>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          
+           <li>
+           <a href="https://bookdown.org/yihui/blogdown/" class="footer-links-kudos">Followed <img src="/images/blogdownlogo.png" alt="Img link to blogdown website" width="22" height="22"></a>
+          </li>
+          <li>
+           <a href="https://github.com/frank0434/ApsimXLearn" class="footer-links-kudos">Report issues or contribute?<img src="/images/github.png" alt="Img link to github repo" width="44" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apsimx on A documentation website</title>
+    <link>/categories/apsimx/</link>
+    <description>Recent content in apsimx on A documentation website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/apsimx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Manual validation of ApsimNG-Lucerne </title>
+      <link>/2020/04/05/manual-validation-of-apsimng-lucerne/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/05/manual-validation-of-apsimng-lucerne/</guid>
+      <description>The caseThe software and versionVisulisation tool - ApsimNG build in toolsPotential automated validation - R/PythonThe caseApsimNG is a great tool for climate change studies once we have a comprehensive plant model with realibale climate data and detailted soil propterties. However, it will be waster of time if the simulation results make no biological sense. The validation of a model is a key step before we ran the massive simulations for climate change scenarios.</description>
+    </item>
+    
+    <item>
+      <title>Balance is the key to validate ApsimX simulations</title>
+      <link>/2020/03/28/blance-is-the-key-to-validate-your-simulation/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/28/blance-is-the-key-to-validate-your-simulation/</guid>
+      <description>IntroductionWater BalanceNitrogen BalanceBiomass BalanceIntroductionIt is critical to inspect the simulation result from a Apsim model so that we are confidence to say the model does what is expected. For a beginner, it might feel hopeless when we stare at the UI with hundreds of parameters can be modified and output. Despite the complicity of Apsim, the entire idea of simulation checking is about biologically meaningful.</description>
+    </item>
+    
+    <item>
+      <title>Multiply ApsimX files via Models.exe</title>
+      <link>/2020/03/13/multiply-apsimx-files-via-models-exe/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/13/multiply-apsimx-files-via-models-exe/</guid>
+      <description>MotivationApsimNG built in feature in command lineStep by step in Window powershellLinuxOther solutions for multiplying .apsimx filesR solutionPython solutionC# solutionMotivationAlthough the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large .apsimx file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small .</description>
+    </item>
+    
+    <item>
+      <title> Apism Next Generation Custom build 101</title>
+      <link>/2020/03/11/apism-next-generation-custom-build-101/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/11/apism-next-generation-custom-build-101/</guid>
+      <description>IngredientsHow to clone the ApsimX repositoryHow to buildIngredientsVisual Studio is essential.
+Git has been built into visual studio IDE from 2013 update 1. So not necessary to install git independently. But it is necessary to have some basic understanding of git.
+Github account to clone the repository to local machines. Github is a great platform that host all the repository for many projects.</description>
+    </item>
+    
+  </channel>
+</rss>
