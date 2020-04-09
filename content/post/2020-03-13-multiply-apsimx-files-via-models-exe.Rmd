@@ -42,7 +42,7 @@ _Note:_ This documentation is for models in the **prototype** stages on a custom
 ![Snapshot 1](/post/2020-03-13-multiply-apsimx-files-via-models-exe_files/copynode.PNG){width=80% height=80%}  
 
 
-6. We can paste the path to a plain text file. To change specific parameter values, we still need to define the name of the parameter. For instance, we need to use `.Start` to instruct the absolute path address for modifying the clock start date. The updated values can be placed after the equal sign with the same format in the `.apsimx` file. See an example of formatting the configuration file. `Notepad++` is recommended for Windows user to search the exact key - value pair to track the target parameters. Please be aware that no quotation is needed. The current version of `/Edit` feature does not like `.`(dot) on the right hand side (RHS). For example, there are two `.` in the last line of the configuration file. First one is the relative path to the `.met` file and the second one is the file extension. Error messages will be reported in this situation. One way to work around it is to use absolute path and put a `blank space` in between `lincoln` and `.met`. 
+6. We can paste the path to a plain text file. To change specific parameter values, we still need to define the name of the parameter. For instance, we need to use `.Start` to instruct the absolute path address for modifying the clock start date. The updated values can be placed after the equal sign with the same format in the `.apsimx` file. See an example of formatting the configuration file. `Notepad++` is recommended for Windows user to search the exact key - value pair to track the target parameters. Please be aware that no quotation is needed.
 
 ``` Get-Content .\config20200312.txt```
 ```
@@ -50,7 +50,7 @@ _Note:_ This documentation is for models in the **prototype** stages on a custom
 .Simulations.New Zealand.Iversen_12.Simulation3.clock.End = 1980-02-03T00:00:00
 .Simulations.New Zealand.Iversen_12.Simulation3.paddock.Soil.Physical.LucerneSoil.KL = 1,2,3,4,5,6,7,8,9,0
 .Simulations.Replacements.Lucerne.Leaf.Photosynthesis.FW.XYPairs.X = 2,3,4,5
-.Simulations.New Zealand.Iversen_12.Simulation3.Weather.FileName = .\01raw-data\ClimateAndObserved\lincoln.met
+.Simulations.New Zealand.Iversen_12.Simulation3.Weather.FileName = C:\Data\01raw-data\ClimateAndObserved\lincoln.met
 ```
 
 More discussion about this feature can be find in this [github issue](https://github.com/APSIMInitiative/ApsimX/issues/4905)
