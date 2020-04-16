@@ -24,6 +24,7 @@ output:
 <li><a href="#github-repositories">Github repositories</a></li>
 </ul></li>
 <li><a href="#step-by-step-receipt">Step by Step receipt</a></li>
+<li><a href="#collaborating-with-others">Collaborating with others</a></li>
 <li><a href="#next-step">Next step</a></li>
 </ul>
 </div>
@@ -71,7 +72,7 @@ output:
 </div>
 <div id="github-repositories" class="section level2">
 <h2>Github repositories</h2>
-<p>Two repos will be needed for this post.One for having the project content - where we hold the materials for posts and themes. The other one to host all the public materials that have been rendered and ready to display on the website.</p>
+<p>Two repositories will be needed for this post.One for having the project content - where we hold the materials for posts and themes. The other one to host all the public materials that have been rendered and ready to display on the website.</p>
 <p>For example, the repo <a href="https://github.com/frank0434/ApsimXLearn">ApsimXLearn</a> contains all the themes and raw <code>.Rmd</code> files to build the posts.</p>
 <p>The repo <a href="https://github.com/frank0434/frank0434.github.io">frank0434.github.io</a> has only the rendered materials to show on the <a href="https://frank0434.github.io/">website</a>.</p>
 </div>
@@ -126,7 +127,7 @@ output:
 <ol start="9" style="list-style-type: decimal">
 <li>Now we can go to create new post or edit existing ones or customise the theme by using blogdown addins in Rstudio. Further details can be found in <a href="https://bookdown.org/yihui/blogdown/rstudio-ide.html">the book</a>.<br />
 </li>
-<li>Everytime when <code>blogdown::serve_site()</code> is triggered, the content in <code>public</code> directory will be updated. The stuff in the <code>public</code> directory is meant to be push back to the repo that created in step 4.<br />
+<li>Every time when <code>blogdown::serve_site()</code> is triggered, the content in <code>public</code> directory will be updated. The stuff in the <code>public</code> directory is meant to be push back to the repo that created in step 4.<br />
 </li>
 <li>Use a <code>shell</code> script to help the push back process is suggested by the <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">HUGO documentation</a>. A modified version below is used in this case since we are using <code>blogdown</code> to build the website. The script here assume that we are happy to just use the date and time as commit message.</li>
 </ol>
@@ -151,9 +152,9 @@ git push origin master  </code></pre>
 </li>
 <li>A similar <code>*.sh</code> script can be used for pushing commits in parent repo as well.<br />
 </li>
-<li>Now we have the parent repo and website children repo version contorlled locally and backed up on github. We can do whereever and whenever to update and modify the content of the blog. :grin:</li>
+<li>Now we have the parent repo and website children repo version controlled locally and backed up on github. We can do wherever and whenever to update and modify the content of the blog. :grin:</li>
 </ol>
-<p>The current sturcture of this blog shows below:</p>
+<p>The current structure of this blog shows below:</p>
 <pre><code>├───.Rproj.user
 |\\\\\IGNORE IRRLAVENT DIRS\\\\\
 ├───content
@@ -205,6 +206,37 @@ git push origin master  </code></pre>
             ├───images
             └───js
   </code></pre>
+</div>
+<div id="collaborating-with-others" class="section level1">
+<h1>Collaborating with others</h1>
+<p>It seems to be not straight forward when it comes to collaboration.</p>
+<p>The <code>public</code> directory is already in the <code>git</code> index although it is empty when we pull down the <code>ApsimXLearn</code> repository to a new machine. This is problematic because we could not add the submodule nor update it.</p>
+<p>One way to work around is to remove the empty <code>public</code> directory first and clean the <code>git cached</code> as well. Then add the <code>github.io</code> repository to the submodule.</p>
+<p>A step by step will be:</p>
+<ol style="list-style-type: decimal">
+<li>Clone the <code>ApsimXLearn</code> repository down to local.<br />
+</li>
+</ol>
+<pre><code>$ git clone https://github.com/frank0434/ApsimXLearn.git</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Remove the existing and empty <code>public</code> directory.<br />
+</li>
+</ol>
+<pre><code>$ cd ApsimXLearn/
+$ rm -rf public/</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Remove the git index as well.<br />
+</li>
+</ol>
+<pre><code>$ git rm --cached public</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Add the <code>frank0434.github.io</code> repository as submodule.<br />
+</li>
+</ol>
+<pre><code>$ git submodule add https://github.com/frank0434/frank0434.github.io.git public</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Ready to work on the new post. :smile:</li>
+</ol>
 </div>
 <div id="next-step" class="section level1">
 <h1>Next step</h1>

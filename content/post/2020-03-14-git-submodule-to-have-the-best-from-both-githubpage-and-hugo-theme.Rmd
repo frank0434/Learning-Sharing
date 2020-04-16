@@ -38,7 +38,7 @@ The idea is to use a nested repository structure to have multiple `submodule(s)`
 
 ## Github repositories 
 
-Two repos will be needed for this post.One for having the project content - where we hold the materials for posts and themes. The other one to host all the public materials that have been rendered and ready to display on the website. 
+Two repositories will be needed for this post.One for having the project content - where we hold the materials for posts and themes. The other one to host all the public materials that have been rendered and ready to display on the website. 
 
 For example, the repo [ApsimXLearn](https://github.com/frank0434/ApsimXLearn) contains all the themes and raw `.Rmd` files to build the posts. 
 
@@ -89,7 +89,7 @@ The key folders/directories are content, resources, static and themes. You would
    08d8c2cb943b395d9d3658dd45d5ef03409edc84 public (heads/master)
   ```  
   9. Now we can go to create new post or edit existing ones or customise the theme by using blogdown addins in Rstudio. Further details can be found in [the book](https://bookdown.org/yihui/blogdown/rstudio-ide.html).   
-  10. Everytime when `blogdown::serve_site()` is triggered, the content in `public` directory will be updated. The stuff in the `public` directory is meant to be push back to the repo that created in step 4.  
+  10. Every time when `blogdown::serve_site()` is triggered, the content in `public` directory will be updated. The stuff in the `public` directory is meant to be push back to the repo that created in step 4.  
   11. Use a `shell` script to help the push back process is suggested by the [HUGO documentation](https://gohugo.io/hosting-and-deployment/hosting-on-github/). A modified version below is used in this case since we are using `blogdown` to build the website. The script here assume that we are happy to just use the date and time as commit message. 
   ```
   #!/bin/sh
@@ -111,10 +111,10 @@ The key folders/directories are content, resources, static and themes. You would
   
   13. Our parent repo is still in the local environment. I found the `usethis::use_github()` is very easy to use for pushing local repo to github, although it requires a tiny bit configuration before we can use. Again, this is just personal preference. One can always add a remote to the local repo and push it via command line.   
   14. A similar `*.sh` script can be used for pushing commits in parent repo as well.  
-  15. Now we have the parent repo and website children repo version contorlled locally and backed up on github. We can do whereever and whenever to update and modify the content of the blog. :grin:
+  15. Now we have the parent repo and website children repo version controlled locally and backed up on github. We can do wherever and whenever to update and modify the content of the blog. :grin:
   
   
-The current sturcture of this blog shows below: 
+The current structure of this blog shows below: 
 
 ```
 ├───.Rproj.user
@@ -169,6 +169,39 @@ The current sturcture of this blog shows below:
             └───js
   
 ```
+# Collaborating with others 
+
+It seems to be not straight forward when it comes to collaboration. 
+
+The `public` directory is already in the `git` index although it is empty when we pull down the `ApsimXLearn` repository to a new machine. This is problematic because we could not add the submodule nor update it. 
+
+One way to work around is to remove the empty `public` directory first and clean the `git cached` as well. Then add the `github.io` repository to the submodule. 
+
+A step by step will be:   
+
+1. Clone the `ApsimXLearn` repository down to local.   
+```
+$ git clone https://github.com/frank0434/ApsimXLearn.git
+```  
+
+2. Remove the existing and empty `public` directory.  
+```
+$ cd ApsimXLearn/
+$ rm -rf public/
+```
+
+3. Remove the git index as well.   
+```
+$ git rm --cached public
+```  
+
+4. Add the `frank0434.github.io` repository as submodule.   
+```
+$ git submodule add https://github.com/frank0434/frank0434.github.io.git public
+```
+
+5. Ready to work on the new post. :smile:
+
 
 # Next step 
 
