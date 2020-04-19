@@ -30,7 +30,7 @@ The data should be organised in a way Apsim can read it.  The screenshots below 
 -	Data should include a brief description of the experiment and/or site:  
 -	Add information about the data (collections method, was it cleaned?, etc)   
 
-# Example 1 Weather data 
+# Example 1: Weather data 
 
 Weather data should be organised like shown in the example below. To import weather data to Apsim the file should be stored as a “met” file. Often weather data should be collected over a long period not only for the time the experiment is running. Weather data is available on the cliflo weather database from NIWA.   
 
