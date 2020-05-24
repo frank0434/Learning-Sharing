@@ -28,6 +28,7 @@ enableEmoji = true
     url = "https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/"
 
 [params]
+    author = "Jian (aka Frank) Liu"
     description = "A website built through Hugo and blogdown."
 
     # options for highlight.js (version, additional languages, and theme)

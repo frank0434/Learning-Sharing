@@ -1,0 +1,35 @@
+---
+title: 'Common Errors and solutions '
+author: Frank
+date: '2020-05-04'
+slug: common-errors-and-solutions
+categories:
+  - apsimx
+tags:
+  - tricks
+emoji: yes
+output:
+  blogdown::html_page:
+    toc: yes
+---
+
+**This page is the FAQ which contains random errors and potential solutions of [ApsimX](https://www.apsim.info/)** 
+
+## 1. Invalid report variables
+
+```
+Error in report Output: Invalid report variables found:
+RUEshoot
+```
+**Possible Cause:** 0 or other numeric values divided by 0.  
+**Solution:** Add a small number into the denominator. `[ExtraVariables].Script.AverageInterceptedRadiation + 0.00000001`
+
+
+## 2. Radiation Units
+
+Contributed by [Edmar](https://github.com/ed2014)
+
+Note: Units in the paper were in MJ of PAR ... 
+APSIM works in global radiation so we can multiply it by 2x
+
+## To be continue 
