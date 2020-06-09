@@ -1,0 +1,21 @@
+---
+title: Deploy shinyapp and postgreSQL db via docker locally
+author: Frank
+date: '2020-06-04'
+slug: deploy-shinyapp-and-postgresql-db-via-docker-locally
+categories: []
+tags:
+  - tricks
+emoji: yes
+output:
+  blogdown::html_page:
+    toc: yes
+---
+
+
+`Found orphan containers`
+docker-compose takes the name of the directory it is in as the default project name.
+
+You can set a different project name by using -p or --project-name.
+https://stackoverflow.com/questions/50947938/docker-compose-orphan-containers-warning
+https://docs.docker.com/compose/reference/overview/#use--p-to-specify-a-project-name
