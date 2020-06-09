@@ -46,3 +46,12 @@ Potential casue 1:
 ![](/post/2020-05-04-common-errors-and-solutions_files/Object referenece not set to an instance of an object1.png){width=100% height=100%}
 Solution is to delete the empty line in between the script.  
 
+
+# Number of soil layers in SoilWater is different to number of layers in SoilWater.Crop
+
+
+
+# Object reference not set to an instance of an object.
+
+could be 
+1. Soil layer issue: mismatch.... 
