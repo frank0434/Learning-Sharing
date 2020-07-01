@@ -55,3 +55,9 @@ Solution is to delete the empty line in between the script.
 
 could be 
 1. Soil layer issue: mismatch.... 
+
+
+# 'xcopy' is not recognized as an internal or external command
+
+This is a build warning, which won't crush the build and the usage of apsimx. 
+
