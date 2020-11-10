@@ -61,3 +61,8 @@ could be
 
 This is a build warning, which won't crush the build and the usage of apsimx. 
 
+# System.InvalidCastException: Object cannot be cast from DBNull to other types.
+
+Could be input data has `null` type. 
+[#3488](https://github.com/APSIMInitiative/ApsimX/issues/3488)
+

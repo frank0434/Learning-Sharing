@@ -16,6 +16,16 @@ biblio-style: "apalike"
 link-citations: true
 ---
 
+# What is slurp 
+The official [introduction](https://www.apsim.info/documentation/model-documentation/crop-module-documentation/slurp/) suggests that the slurp model in apsim framework can do two things:  
+1. Users can simulate water uptake when users define the canopy of a plant.  
+2. Users can simulate canopy development when users define the water supply in the soil.  
+
+# Why slurp
+
+Water extraction 
+
+# How slurp
 
 Two values are needed:   
 1. $R/R_0$   to calculate the leaf area index and the height
