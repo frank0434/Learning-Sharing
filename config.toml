@@ -44,3 +44,8 @@ enableEmoji = true
     favicon = "favicon.ico"
 
 
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
