@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>Telegraf-influxDB-Grafana stack for IoT stuff in docker - A documentation website</title>
+<meta property="og:title" content="Telegraf-influxDB-Grafana stack for IoT stuff in docker - A documentation website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/%3cnil%3e"
+         width=""
+         height=""
+         alt="">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/frank0434/ApsimXLearn">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/">Linkedin</a></li>
+    
+    <li><a href="https://twitter.com/frank0434">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Telegraf-influxDB-Grafana stack for IoT stuff in docker</h1>
+
+    
+    <span class="article-date">2020-11-10</span>
+    
+
+    <div class="article-content">
+      <p><strong>TL;TR</strong></p>
+<p>Explore the platform - <a href="https://www.influxdata.com/time-series-platform/telegraf/">Telegraf</a>, <a href="https://www.influxdata.com/products/influxdb-overview/">InfluxDB</a> and <a href="https://grafana.com/">Grafana</a> (TIG).</p>
+<ul>
+<li>Advantages:<br>
+i.  True IoT setup. Data ingestion happens in millisenconds via telegraf. Telegraf can be added as a windowns service, which means restart computer won&rsquo;t destroy the workflow.  <br>
+ii. Time series database, super efficient.<br>
+iii. Full interactive dashboard with drag and drop buidling mechnism.</li>
+<li>Disadvantages:<br>
+i.  Telegraf configuration.<br>
+ii. InfluxDB query lanuage.</li>
+</ul>
+<h1 id="docker-compose-files-for-a-simple-uptodate">Docker-compose files for a simple uptodate</h1>
+<h1 id="influxdb">InfluxDB</h1>
+<h1 id="-grafana-stack">+ Grafana stack</h1>
+<h1 id="-telegraf">+ Telegraf</h1>
+<p>Get the stack (only once):</p>
+<pre><code>git clone https://github.com/nicolargo/docker-influxdb-grafana.git
+cd docker-influxdb-grafana
+docker pull grafana/grafana
+docker pull influxdb
+docker pull telegraf
+</code></pre><p>Better use a download version <a href="https://www.influxdata.com/time-series-platform/telegraf/">telegraf</a> since the docker image for telegraf will casuse headache to configure correctly for monitoring files or systems outside of the docker container.</p>
+<p>Modify the compose file to work on machines without admin access. 
+<a href="https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac">Reference post</a></p>
+<p>The post has a quick walkthrough example to deploy influxdb and grafana.
+The git repo has all three deploy together, but have to confige the telegraf.</p>
+<p>Current demo combined both.</p>
+<p>The compose file from the git repo was modified to a version:&ldquo;2&rdquo; with services that includes all 3 stacks, a network and external volumes.</p>
+<p>External volume and resources have to be created manually.</p>
+<pre><code>docker network create monitoring
+docker volume create grafana-volume
+docker volume create influxdb-volume
+</code></pre><p>Additional docker run commond from the post was used to inital an influxdb.</p>
+<pre><code>docker run --rm \
+  -e INFLUXDB_DB=telegraf -e INFLUXDB_ADMIN_ENABLED=true \
+  -e INFLUXDB_ADMIN_USER=admin \
+  -e INFLUXDB_ADMIN_PASSWORD=supersecretpassword \
+  -e INFLUXDB_USER=telegraf -e INFLUXDB_USER_PASSWORD=secretpassword \
+  -v influxdb-volume:/var/lib/influxdb \
+  influxdb /init-influxdb.sh
+</code></pre><p>Telegraf was configured by the recipe from the post.</p>
+<p>Main changes are in the output plugins area:</p>
+<ol>
+<li>urls to access influxdb was changed to host:port</li>
+<li>username and password</li>
+</ol>
+<p><a href="http://aklpps14:3001/d/Wleg9d2Mz/telegraf-system-overview?orgId=1&amp;refresh=1m">Demo</a></p>
+<p>Tips:</p>
+<p>Anonymous dashboard viewing could be configured with a env file. 
+Here used a file called <code>env.grafana</code>. 
+The oragnisation name need to be the same in the <code>Configuration-&gt;Pereference</code> and the one in the env file.</p>
+<p>Show me the logs:</p>
+<pre><code>docker-compose logs
+</code></pre><p>Stop it:</p>
+<pre><code>docker-compose stop
+docker-compose rm
+</code></pre><p>Update it:</p>
+<pre><code>git pull
+docker pull grafana/grafana
+docker pull influxdb
+docker pull telegraf
+</code></pre><p>If you want to run Telegraf, edit the telegraf.conf to yours needs and:</p>
+<pre><code>docker exec telegraf telegraf
+</code></pre>
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          
+           <li>
+           <a href="https://bookdown.org/yihui/blogdown/" class="footer-links-kudos">Followed <img src="/images/blogdownlogo.png" alt="Img link to blogdown website" width="22" height="22"></a>
+          </li>
+          <li>
+           <a href="https://github.com/frank0434/ApsimXLearn" class="footer-links-kudos">Report issues or contribute?<img src="/images/github.png" alt="Img link to github repo" width="44" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

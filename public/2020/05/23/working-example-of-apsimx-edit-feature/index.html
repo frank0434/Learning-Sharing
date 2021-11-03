@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>Working example of ApsimX `Edit` feature - A documentation website</title>
+<meta property="og:title" content="Working example of ApsimX `Edit` feature - A documentation website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/%3cnil%3e"
+         width=""
+         height=""
+         alt="">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/frank0434/ApsimXLearn">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/">Linkedin</a></li>
+    
+    <li><a href="https://twitter.com/frank0434">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">Working example of ApsimX `Edit` feature</h1>
+
+    
+    <span class="article-date">2020-05-23</span>
+    
+
+    <div class="article-content">
+      <p>In the previous <a href="https://frank0434.github.io/2020/03/13/multiply-apsimx-files-via-models-exe/">post</a> about using ApsimX built-in feature to do multiplication of simulation files, the <code>Edit</code> flag was briefly discussed with basic instruction. This post explores different approaches to integrate the feature into a workflow.</p>
+<h1 id="a-simple-workflow">A simple workflow</h1>
+<ul>
+<li>[Load prepared data](# Load prepared soil parameters). For example, a set of soil parameters consists of DUL, LL and initial soil water for each layer.</li>
+<li>[Set constants](# Set directory structure in an R environment). The path to source <code>Models.exe</code> and the configuration file.</li>
+<li>[Set the structure](# Construct the configuration) of configuration file for <code>Edit</code></li>
+<li>[Invoke <strong>Edit</strong>](# Invoke Apsimx)</li>
+</ul>
+<h1 id="load-prepared-data-for-3-soil-parameters">Load prepared data for 3 soil parameters</h1>
+<p>Table @ref(tab:tab1) shows an example of soil parameters for lucerne grown on a particular soil type [@sim2014water]. The data has been prepared in a way that can capture all depths for different sowing dates of the crop. Conventionally, these values for each parameter would be manually entered to the simulation file (<code>.apsim</code> for classic or <code>.apsimx</code> for next-generation) via the UI. Alternatively, <a href="https://frank0434.github.io/2020/03/13/multiply-apsimx-files-via-models-exe/">programming tools</a> have been used to automate the process. However, both approaches require users to have extensive knowledge of data structure and basic programming skills. The built-in <a href="https://apsimnextgeneration.netlify.app/usage/editfile/"><code>Edit</code> feature in ApsimX</a> should be sufficient to remove the pressure of comprehensive a programming language. Instead, the user can customise a particular established workflow to achieve their goals.</p>
+<pre><code class="language-{r" data-lang="{r">library(magrittr)
+library(kableExtra)
+Soilparas &lt;- readRDS(&quot;../../static/data/soilParams.rds&quot;)
+knitr::kable(head(Soilparas[, 1:7]), align = &quot;c&quot;,
+             col.names = c(&quot;Location&quot;,&quot;Sowing Date&quot;, &quot;Date&quot;, &quot;Depth&quot;, &quot;SW&quot;,&quot;DUL&quot;, &quot;LL&quot;),
+             caption = &quot;Initial soil parameters for 22 layers in 10 different sowing dates.&quot;) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;))
+
+</code></pre><h1 id="set-directory-structure-in-an-r-environment">Set directory structure in an R environment</h1>
+<p>It is intuitive to proceed with the modification of <code>.apsimx</code> file in the R environment since the value extraction of soil parameters was completed in R. The 3 essential paths are:</p>
+<ol>
+<li>The path to &ldquo;Models.exe&rdquo;.</li>
+<li>The path to the template <code>.apsimx</code> which one wants to change.</li>
+<li>The path to the configuration file which contains the address to the desired parameter and the values.</li>
+</ol>
+<p>Some optional paths could be:</p>
+<ol>
+<li>The flag name - <code>Eidt</code></li>
+<li>A path to store all the modified <code>.apsimx</code> files</li>
+</ol>
+<pre><code class="language-{r," data-lang="{r,">#path to apsimx 
+apsimx &lt;- &quot;../../ApsimxLatest/ApsimX/Bin/Models.exe&quot;
+apsimx_sims_temp &lt;- &quot;../03processed-data/apsimxFiles/temp.apsimx&quot;
+apsimx_config &lt;- &quot;../03processed-data/configSoilWat&quot;
+
+apsimx_flag &lt;- &quot;/Edit&quot;
+apsimx_sims_dir &lt;- &quot;../03processed-data/apsimxFiles/&quot;
+
+
+</code></pre><h1 id="construct-the-configuration">Construct the configuration</h1>
+<p>The easiest way to obtain the addresses for certain parameters is to use the <code>Copy path to node</code> functionality in the UI to copy the address into the clipboard. However, this approach won&rsquo;t copy the last bit of the address. For example, the <code>Copy path to node</code> only returns the parent node address to <code>&quot;.Simulations.New Zealand.AshleyDene.Factors.SowingDate.SD.ADsoils.InitialConditions</code> when one copy the <code>InitialConditions</code> node in the UI. The last bit, <code>.SW</code>, has to be manually added in. The Apsim team is working on improvement. More details <a href="https://github.com/APSIMInitiative/ApsimX/issues/4905#issuecomment-631834777">here</a>.</p>
+<p>Currently, users either have to know the name of the parameter or use the <code>tooltip</code> in the <strong>Report</strong> to obtain the last piece of the address. Please note that the path to parameter values are case sensitive. A wrong name triggers <code>Invalid path</code> error message.</p>
+<p>The chunk below demonstrates 5 parameters in the soil model. A <code>for</code> loop was written to construct the <strong>configuration file</strong>. We do not have to output the configuration file if one is certain about the correctness of the configuration file.</p>
+<pre><code class="language-{r," data-lang="{r,"># Node Path - copied from ApsimX UI
+
+initialSW &lt;- &quot;.Simulations.New Zealand.AshleyDene.Factors.SowingDate.SD.ADsoils.InitialConditions.SW = &quot;
+DUL &lt;- &quot;.Simulations.New Zealand.AshleyDene.Factors.SowingDate.SD.ADsoils.Physical.DUL = &quot;
+LL &lt;- &quot;.Simulations.New Zealand.AshleyDene.Factors.SowingDate.SD.ADsoils.Physical.LucerneSoil.LL = &quot;
+LL15 &lt;- &quot;.Simulations.New Zealand.AshleyDene.Factors.SowingDate.SD.ADsoils.Physical.LL15 = &quot;
+SAT &lt;- &quot;.Simulations.New Zealand.AshleyDene.Factors.SowingDate.SD.ADsoils.Physical.SAT = &quot;
+
+# Keys
+sites &lt;- unique(SW_DUL_LL$Experiment)
+SDs &lt;- paste0(&quot;SD&quot;, 1:10)
+
+# Vectorise the values and stuff them into the configuration files
+for(j in sites){
+  for(i in SDs){
+    # Filter the right values 
+    SDsw &lt;- SW_DUL_LL[SowingDate == i &amp; Experiment == j]$SW
+    SDDUL &lt;- SW_DUL_LL[SowingDate == i &amp; Experiment == j]$DUL
+    SDLL &lt;- SW_DUL_LL[SowingDate == i &amp; Experiment == j]$LL
+    apsimx_sw &lt;- paste0(initialSW,
+                        paste(SDsw,collapse = &quot;,&quot;))
+    apsimx_DUL &lt;- paste0(DUL,
+                         paste(SDDUL,collapse = &quot;,&quot;))
+    apsimx_LL &lt;- paste0(LL,
+                        paste(SDLL,collapse = &quot;,&quot;))
+    apsimx_LL15 &lt;- paste0(LL15,
+                          paste(SDLL,collapse = &quot;,&quot;))
+    apsimx_SAT &lt;- paste0(SAT,
+                         paste(SDDUL,collapse = &quot;,&quot;))
+    # Open a text file
+    f &lt;- file(paste0(apsimx_config, j, i, &quot;.txt&quot;), &quot;w&quot;)
+    # Write values into the file 
+    cat(apsimx_sw,
+        apsimx_DUL,
+        apsimx_LL,
+        apsimx_LL15,
+        apsimx_SAT,&quot;\r&quot;,
+        sep = &quot;\r&quot;, 
+        file = f, 
+        append = TRUE)
+    # Close the file and clean it from memory 
+    close(f)
+    rm(f)
+    gc()
+  }
+
+}
+
+</code></pre><h1 id="invoke-apsimx">Invoke Apsimx</h1>
+<p>A second <code>for</code> loop can be used to integrate the <code>Edit</code> feature into the workflow with two steps. The first step is to trigger the modification process based on the configuration file. The second step is to save the modified file into a different name. R might not be the most efficient tool to proceed with these steps because of the efficiency. A Window Powershell script could be developed to process the modification for maximising the efficiency. A bash-script could be more productive in the Linux environment.</p>
+<pre><code class="language-{r," data-lang="{r,">for(j in sites){
+   for(i in SDs){
+     # Edit the base apsimx file and save it to a new name
+     ## modify the apsimx file 
+     system(paste(apsimx, apsimx_file, apsimx_flag, paste0(apsimx_config, j, i,&quot;.txt&quot;)))
+     ## rename the modified one
+     system(paste(&quot;cp&quot;, apsimx_file, paste0(apsimx_sims_dir, &quot;Modified&quot;, j, i, &quot;.apsimx&quot;)))
+     ## delete the temp apsimx 
+     # system(paste(&quot;rm&quot;, paste0(apsimx_sims_dir, &quot;temp*&quot;)))
+   }
+  }
+</code></pre><h1 id="reference">Reference</h1>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          
+           <li>
+           <a href="https://bookdown.org/yihui/blogdown/" class="footer-links-kudos">Followed <img src="/images/blogdownlogo.png" alt="Img link to blogdown website" width="22" height="22"></a>
+          </li>
+          <li>
+           <a href="https://github.com/frank0434/ApsimXLearn" class="footer-links-kudos">Report issues or contribute?<img src="/images/github.png" alt="Img link to github repo" width="44" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

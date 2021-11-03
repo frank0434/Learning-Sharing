@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>Preparing data for Apsim Classic - A documentation website</title>
+<meta property="og:title" content="Preparing data for Apsim Classic - A documentation website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/%3cnil%3e"
+         width=""
+         height=""
+         alt="">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/frank0434/ApsimXLearn">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/">Linkedin</a></li>
+    
+    <li><a href="https://twitter.com/frank0434">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Preparing data for Apsim Classic</h1>
+
+    
+    <span class="article-date">2020-04-18</span>
+    
+
+    <div class="article-content">
+      <p><strong>Contributed By <a href="https://github.com/StephanieLanger">Stephanie Langer</a></strong></p>
+<h1 id="key-comments">Key comments</h1>
+<p>The data should be organised in a way Apsim can read it.  The screenshots below show examples for different templates. First some general comments:</p>
+<ul>
+<li>Data can be stored one file or separated, even csv is fine;</li>
+<li>Some optional comments in the top (comments start with a “!”);</li>
+<li>A row of headers, these should be something that make clear what they are (not too long and they need to be unique), if the table gets too big, we might make different files;</li>
+<li>A row with units, between brackets (each cell must have something, if not unit is available then use empty brackets);</li>
+<li>First column with date (there can be gaps, but no repetitions);</li>
+<li>Missing data should be marked (using  “?”, or “*”, or “NA”);</li>
+<li>I’d recommend round the numbers so that we don’t get silly values (like 2.00000000013 when it should be 2.0), but careful not to round too much (suggest one decimal place for pasture DM, three for SWC);</li>
+<li>Data should include a brief description of the experiment and/or site:</li>
+<li>Add information about the data (collections method, was it cleaned?, etc)</li>
+</ul>
+<h1 id="example-1-weather-data">Example 1: Weather data</h1>
+<p>Weather data should be organised like shown in the example below. To import weather data to Apsim the file should be stored as a “met” file. Often weather data should be collected over a long period not only for the time the experiment is running. Weather data is available on the cliflo weather database from NIWA.</p>
+<p><img src="/post/2020-04-18-preparing-data-for-apsim-classic_files/steph1.png" alt="">{width=100% height=100%}</p>
+<h1 id="example-2-site-data">Example 2: Site data</h1>
+<p>Incoming lab data can be summarised in the following template. The collected data can be easily copied and pasted in corresponding tables in APSIM.</p>
+<p><img src="/post/2020-04-18-preparing-data-for-apsim-classic_files/steph2.png" alt="">{width=100% height=100%}</p>
+<h1 id="example-3-dry-matter-and-soil-water-content-data">Example 3: Dry matter and soil water content data</h1>
+<p>Dry matter data is often recorded under field and lab data. The measured dry matter data can be used to validate the predicted pasture/crop production.</p>
+<p><img src="/post/2020-04-18-preparing-data-for-apsim-classic_files/steph3.png" alt="">{width=100% height=100%}</p>
+<p>The soil water content is often measured by soil moisture probes (e.g. TDR). It is important to know what data is be used (hourly, daily average, or minutes), often the soil moisture measured at 23:00 o`clock is used but it depends on the user and research question.  Furthermore soil water content can be measured using a neutron probe.</p>
+<p><img src="/post/2020-04-18-preparing-data-for-apsim-classic_files/steph4.png" alt="">{width=80% height=80%}</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          
+           <li>
+           <a href="https://bookdown.org/yihui/blogdown/" class="footer-links-kudos">Followed <img src="/images/blogdownlogo.png" alt="Img link to blogdown website" width="22" height="22"></a>
+          </li>
+          <li>
+           <a href="https://github.com/frank0434/ApsimXLearn" class="footer-links-kudos">Report issues or contribute?<img src="/images/github.png" alt="Img link to github repo" width="44" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+  </body>
+</html>
+

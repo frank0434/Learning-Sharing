@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>Multiply ApsimX files via Models.exe - A documentation website</title>
+<meta property="og:title" content="Multiply ApsimX files via Models.exe - A documentation website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/%3cnil%3e"
+         width=""
+         height=""
+         alt="">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/frank0434/ApsimXLearn">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/">Linkedin</a></li>
+    
+    <li><a href="https://twitter.com/frank0434">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+
+    <h1 class="article-title">Multiply ApsimX files via Models.exe</h1>
+
+    
+    <span class="article-date">2020-03-13</span>
+    
+
+    <div class="article-content">
+      <h1 id="motivation">Motivation</h1>
+<p>Although the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large <code>.apsimx</code> file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small <code>.apsimx</code> files that require less CPU time are desirable so that the HPC can run small jobs parallel within a relative short time. A various solutions have been developed to cater the need of multiplying small <code>.apsimx</code> files in R, Python and C#. However, they are tailored case by case. ApsimNG has a built in feature, <code>/Edit</code>, can perform such task in command line.</p>
+<p><em>Note:</em> This documentation is for models in the <strong>prototype</strong> stages on a custom build ApsimNG.</p>
+<h1 id="apsimng-built-in-feature-in-the-command-line">ApsimNG built in feature in the command line</h1>
+<h2 id="step-by-step-in-window-powershell">Step by step in Window Powershell</h2>
+<ol>
+<li>
+<p>A compiled version of APSIM next generation.</p>
+</li>
+<li>
+<p>An executable file <code>Models.exe</code> can be found in the <code>Bin</code> directory.</p>
+</li>
+<li>
+<p>Run <code>.\Bin\Models.exe</code> in command line will trigger the help documentation as below</p>
+</li>
+</ol>
+<p><strong><code>/Edit &lt;PathToConfigFile&gt;</code></strong><br>
+<strong><code>Edits the .apsimx file. Path to a config file must be specified which contains lines of parameters to change in the form 'path = value'</code></strong></p>
+<ol start="4">
+<li>The command requires two inputs:</li>
+</ol>
+<p>a. The <code>.apsimx</code> file that needs to multiply. 
+b. A configuration file contains the parameter address with associated values to be modified.</p>
+<ol start="5">
+<li>To construct the configuration file, we need to identify the absolute path to the wanted nodes. The easiest way is using the user interface (UI) to copy the path to particular nodes. For example, we can right click the <code>clock</code> node and select the <code>copy path to node</code> or use the short cut key shows in snapshot 1.</li>
+</ol>
+<p><img src="/post/2020-03-13-multiply-apsimx-files-via-models-exe_files/copynode.PNG" alt="Snapshot 1">{width=80% height=80%}</p>
+<ol start="6">
+<li>We can paste the path to a plain text file. To change specific parameter values, we still need to define the name of the parameter. For instance, we need to use <code>.Start</code> to instruct the absolute path address for modifying the clock start date. The updated values can be placed after the equal sign with the same format in the <code>.apsimx</code> file. See an example of formatting the configuration file. <code>Notepad++</code> is recommended for Windows user to search the exact key - value pair to track the target parameters. Please be aware that no quotation is needed.</li>
+</ol>
+<p><code> Get-Content .\config20200312.txt</code></p>
+<pre><code>.Simulations.New Zealand.Iversen_12.Simulation3.clock.Start = 1970-02-03T00:00:00
+.Simulations.New Zealand.Iversen_12.Simulation3.clock.End = 1980-02-03T00:00:00
+.Simulations.New Zealand.Iversen_12.Simulation3.paddock.Soil.Physical.LucerneSoil.KL = 1,2,3,4,5,6,7,8,9,0
+.Simulations.Replacements.Lucerne.Leaf.Photosynthesis.FW.XYPairs.X = 2,3,4,5
+.Simulations.New Zealand.Iversen_12.Simulation3.Weather.FileName = C:\Data\01raw-data\ClimateAndObserved\lincoln.met
+</code></pre><ol start="7">
+<li>The command below can trigger the editing on a test <code>.aspimx</code> file. Please be aware of the working directory for deciding the absolute and relative paths.</li>
+</ol>
+<pre><code> C:\ApsimX\Bin\Models.exe .\test.apsimx /Edit .\config20200312.txt
+</code></pre><ol start="8">
+<li>Run the test <code>.apsimx</code> file to make sure the expected modification has happened.</li>
+</ol>
+<pre><code> C:\ApsimX\Bin\Models.exe .\test.apsimx 
+</code></pre><p>More discussion about this feature can be find in this <a href="https://github.com/APSIMInitiative/ApsimX/issues/4905">github issue</a></p>
+<ol start="9">
+<li>To optimise the power of <code>/Edit</code>. We believe that multiple configuration files can be automatically generated by additional tools such as R, Python and C#. A simple for loop can be written to iterate over all configuration files and output corresponding modified <code>.apsimx</code> files. An automated workflow will be discussed.</li>
+</ol>
+<h2 id="linux">Linux</h2>
+<p>The process is exactly the same as it in Powershell. The only difference might be that <code>mono</code> is required to invoke the <code>Models.exe</code> in the Linux environment. The command, therefore, will be as below:</p>
+<pre><code>mono C:\ApsimX\Bin\Models.exe .\test.apsimx /Edit .\config20200312.txt
+</code></pre><p>This <a href="https://apsimnextgeneration.netlify.app/development/contribute/compile/linux/">document</a> provides details about how to compile ApsimX into Linux enviroment.</p>
+<h1 id="other-solutions-for-multiplying-apsimx-files">Other solutions for multiplying <code>.apsimx</code> files</h1>
+<p>Except for C#, the R and Python solutions require specific tweaks to suit for different purposes. Will briefly describe how these solutions work in this section. In general, the logic in all solutions is the same as the build-in <code>/Edit</code> feature, which is searching and updating. Specifically, customised functions are developed to perform searching the path of wanted nodes and replacing the value in those nodes by new values.</p>
+<h2 id="r-solution">R solution</h2>
+<p>Coming soon</p>
+<h2 id="python-solution">Python solution</h2>
+<p>Coming soon</p>
+<h2 id="c-solution">C# solution</h2>
+<p>Coming soon</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          
+           <li>
+           <a href="https://bookdown.org/yihui/blogdown/" class="footer-links-kudos">Followed <img src="/images/blogdownlogo.png" alt="Img link to blogdown website" width="22" height="22"></a>
+          </li>
+          <li>
+           <a href="https://github.com/frank0434/ApsimXLearn" class="footer-links-kudos">Report issues or contribute?<img src="/images/github.png" alt="Img link to github repo" width="44" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

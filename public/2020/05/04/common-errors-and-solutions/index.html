@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>Common Errors and solutions  - A documentation website</title>
+<meta property="og:title" content="Common Errors and solutions  - A documentation website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/%3cnil%3e"
+         width=""
+         height=""
+         alt="">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/frank0434/ApsimXLearn">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/">Linkedin</a></li>
+    
+    <li><a href="https://twitter.com/frank0434">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Common Errors and solutions </h1>
+
+    
+    <span class="article-date">2020-05-04</span>
+    
+
+    <div class="article-content">
+      <p><strong>This page is the FAQ which contains random errors and potential solutions of <a href="https://www.apsim.info/">ApsimX</a></strong></p>
+<h1 id="invalid-report-variables">Invalid report variables</h1>
+<pre><code>Error in report Output: Invalid report variables found:
+RUEshoot
+</code></pre><p><strong>Possible Cause:</strong> 0 or other numeric values divided by 0.<br>
+<strong>Solution:</strong> Add a small number into the denominator. <code>[ExtraVariables].Script.AverageInterceptedRadiation + 0.00000001</code></p>
+<h1 id="radiation-units">Radiation Units</h1>
+<p>Contributed by <a href="https://github.com/ed2014">Edmar</a></p>
+<p>Note: Units in the paper were in MJ of PAR &hellip; 
+APSIM works in global radiation so we can multiply it by 2x</p>
+<h1 id="no-such-column-tzone---_unsloved_"><code>no such column: T.Zone</code> - <em>Unsloved</em></h1>
+<p>Run <code>apimx</code> in visual studio to figure out where the error from.</p>
+<p><code>Common Lanuage Runtime Exceptions</code> must be ticked to trace the error source.</p>
+<h1 id="systemnullreferenceexception-object-reference-not-set-to-an-instance-of-an-object"><code>System.NullReferenceException: 'Object reference not set to an instance of an object.'</code></h1>
+<p>Potential casue 1:</p>
+<p>![](/post/2020-05-04-common-errors-and-solutions_files/Object referenece not set to an instance of an object1.png){width=100% height=100%}
+Solution is to delete the empty line in between the script.</p>
+<h1 id="number-of-soil-layers-in-soilwater-is-different-to-number-of-layers-in-soilwatercrop">Number of soil layers in SoilWater is different to number of layers in SoilWater.Crop</h1>
+<h1 id="object-reference-not-set-to-an-instance-of-an-object">Object reference not set to an instance of an object.</h1>
+<p>could be</p>
+<ol>
+<li>Soil layer issue: mismatch&hellip;.</li>
+</ol>
+<h1 id="xcopy-is-not-recognized-as-an-internal-or-external-command">&lsquo;xcopy&rsquo; is not recognized as an internal or external command</h1>
+<p>This is a build warning, which won&rsquo;t crush the build and the usage of apsimx.</p>
+<h1 id="systeminvalidcastexception-object-cannot-be-cast-from-dbnull-to-other-types">System.InvalidCastException: Object cannot be cast from DBNull to other types.</h1>
+<p>Could be input data has <code>null</code> type. 
+<a href="https://github.com/APSIMInitiative/ApsimX/issues/3488">#3488</a></p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          
+           <li>
+           <a href="https://bookdown.org/yihui/blogdown/" class="footer-links-kudos">Followed <img src="/images/blogdownlogo.png" alt="Img link to blogdown website" width="22" height="22"></a>
+          </li>
+          <li>
+           <a href="https://github.com/frank0434/ApsimXLearn" class="footer-links-kudos">Report issues or contribute?<img src="/images/github.png" alt="Img link to github repo" width="44" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>Deploy shinyapp and postgreSQL db via docker locally - A documentation website</title>
+<meta property="og:title" content="Deploy shinyapp and postgreSQL db via docker locally - A documentation website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/%3cnil%3e"
+         width=""
+         height=""
+         alt="">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/frank0434/ApsimXLearn">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/">Linkedin</a></li>
+    
+    <li><a href="https://twitter.com/frank0434">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Deploy shinyapp and postgreSQL db via docker locally</h1>
+
+    
+    <span class="article-date">2020-06-04</span>
+    
+
+    <div class="article-content">
+      <p>The easiest way is probably using multiple db images.</p>
+<pre><code>version: '3'
+
+services:
+  app:
+    build: .
+    image: AwesomeShinyApp
+    restart: unless-stopped
+    user: shiny
+    ports:
+    - &quot;8000:3838&quot;
+    depends_on:
+    - db1
+    - db2
+  db1:
+    image: postgres:10-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: magicword
+    volumes:
+      - &quot;./P001.sql.gz:/docker-entrypoint-initdb.d/P001.sql.gz:z&quot;
+  db2:
+    image: postgres:10-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: magicword
+    volumes:
+      - &quot;./P002.sql.gz:/docker-entrypoint-initdb.d/P002.sql.gz:z&quot;
+</code></pre><p><code>Found orphan containers</code>
+docker-compose takes the name of the directory it is in as the default project name.</p>
+<p>You can set a different project name by using -p or &ndash;project-name.
+<a href="https://stackoverflow.com/questions/50947938/docker-compose-orphan-containers-warning">https://stackoverflow.com/questions/50947938/docker-compose-orphan-containers-warning</a>
+<a href="https://docs.docker.com/compose/reference/overview/#use--p-to-specify-a-project-name">https://docs.docker.com/compose/reference/overview/#use--p-to-specify-a-project-name</a></p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          
+           <li>
+           <a href="https://bookdown.org/yihui/blogdown/" class="footer-links-kudos">Followed <img src="/images/blogdownlogo.png" alt="Img link to blogdown website" width="22" height="22"></a>
+          </li>
+          <li>
+           <a href="https://github.com/frank0434/ApsimXLearn" class="footer-links-kudos">Report issues or contribute?<img src="/images/github.png" alt="Img link to github repo" width="44" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>Found your way home - R default library in windows - A documentation website</title>
+<meta property="og:title" content="Found your way home - R default library in windows - A documentation website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/%3cnil%3e"
+         width=""
+         height=""
+         alt="">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/frank0434/ApsimXLearn">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/">Linkedin</a></li>
+    
+    <li><a href="https://twitter.com/frank0434">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Found your way home - R default library in windows</h1>
+
+    
+    <span class="article-date">2020-03-27</span>
+    
+
+    <div class="article-content">
+      <h1 id="reason-about-this-post">Reason about this post</h1>
+<p>Many R learner (including myself) probably came across the default R library issues in windows system, especially when you are using a company laptop/PC. There are lots of discussion about changing the default directories in R on <a href="https://stackoverflow.com/questions/15170399/change-r-default-library-path-using-libpaths-in-rprofile-site-fails-to-work">StackOverFlow</a> and other <a href="https://www.accelebrate.com/library/how-to-articles/r-rstudio-library">websites</a>. However, I found using <strong>Environment variables</strong> seems to be the easiest way to go.</p>
+<h1 id="change-the-default-library-via-environment-variables">Change the default library via environment variables</h1>
+<ol>
+<li><code>Windows</code> key to trigger the start menu.</li>
+<li>Type <code>Edit system environment variables</code>.</li>
+<li>Click the icon shows in the menu.</li>
+<li>Click <code>Environment variables</code>.</li>
+<li>On the bottom half of the dialog, create a new by click <code>New</code>.</li>
+<li>Variable name will be <code>HOME</code> if there is no <code>HOME</code> existing already.</li>
+<li>Variable value will be the desired default directory for R library.</li>
+<li>OK and restart R.</li>
+</ol>
+<p>P.S. Admin right will probably be handy for this job. 😜</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          
+           <li>
+           <a href="https://bookdown.org/yihui/blogdown/" class="footer-links-kudos">Followed <img src="/images/blogdownlogo.png" alt="Img link to blogdown website" width="22" height="22"></a>
+          </li>
+          <li>
+           <a href="https://github.com/frank0434/ApsimXLearn" class="footer-links-kudos">Report issues or contribute?<img src="/images/github.png" alt="Img link to github repo" width="44" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+  </body>
+</html>
+

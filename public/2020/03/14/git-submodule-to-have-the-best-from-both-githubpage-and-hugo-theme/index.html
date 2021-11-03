@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.74.3" />
+
+
+<title>Git submodule to use Hugo theme on githubPage - A documentation website</title>
+<meta property="og:title" content="Git submodule to use Hugo theme on githubPage - A documentation website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/%3cnil%3e"
+         width=""
+         height=""
+         alt="">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/frank0434/ApsimXLearn">GitHub</a></li>
+    
+    <li><a href="https://www.linkedin.com/in/jian-aka-frank-liu-9623379a/">Linkedin</a></li>
+    
+    <li><a href="https://twitter.com/frank0434">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">6 min read</span>
+    
+
+    <h1 class="article-title">Git submodule to use Hugo theme on githubPage</h1>
+
+    
+    <span class="article-date">2020-03-14</span>
+    
+
+    <div class="article-content">
+      <h1 id="driver">Driver</h1>
+<p>Originally, I was keen to just use the githubPage approach to do this documentation blog because it feels easy. Then, the Yihui&rsquo;s book <em>Blogdown</em> introduces this amazing <strong>HUGO</strong> themes. I became greed and want to have the best of both worlds although I realised that githubPage is not the number one recommendation for deploying the website when half way through the book. However, the stubbornness kicked in and the desire of using githubPage with HUGO themes got the vote. Initially, <a href="https://bookdown.org/yihui/blogdown/github-pages.html">Yihui&rsquo;s suggestion</a> had been followed. But soon the problem of version control the nested git repository became very tricky. The <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">documentation</a> on the Hugo website come in to rescue.</p>
+<h1 id="the-idea">The idea</h1>
+<p>The idea is to use a nested repository structure to have multiple <code>submodule(s)</code> in one parent repository. It is easier to download whatever the themes we might like in the future from the <a href="https://themes.gohugo.io/">HUGO</a> without being limited by the githubPage themes. There are many <a href="https://chrisjean.com/git-submodules-adding-using-removing-and-updating/">tutorials</a> and <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">examples</a> that using <code>submodule(s)</code> to manage website projects. Here is another record to the list. 😆</p>
+<h1 id="ingredients">Ingredients</h1>
+<h2 id="software-and-libraries">Software and Libraries</h2>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">git</td>
+<td align="left">2.16.2.windows.1</td>
+</tr>
+<tr>
+<td align="left">R version</td>
+<td align="left">3.6.2</td>
+</tr>
+<tr>
+<td align="left">Rstudio</td>
+<td align="left">1.2.1335</td>
+</tr>
+<tr>
+<td align="left">Rmarkdown</td>
+<td align="left">2.1</td>
+</tr>
+<tr>
+<td align="left">blogdown</td>
+<td align="left">0.18</td>
+</tr>
+<tr>
+<td align="left">knitr</td>
+<td align="left">1.27</td>
+</tr>
+</tbody>
+</table>
+<h2 id="github-repositories">Github repositories</h2>
+<p>Two repositories will be needed for this post.One for having the project content - where we hold the materials for posts and themes. The other one to host all the public materials that have been rendered and ready to display on the website.</p>
+<p>For example, the repo <a href="https://github.com/frank0434/ApsimXLearn">ApsimXLearn</a> contains all the themes and raw <code>.Rmd</code> files to build the posts.</p>
+<p>The repo <a href="https://github.com/frank0434/frank0434.github.io">frank0434.github.io</a> has only the rendered materials to show on the <a href="https://frank0434.github.io/">website</a>.</p>
+<h1 id="step-by-step-receipt">Step by Step receipt</h1>
+<p>It is necessary to have a go on Yihui&rsquo;s <a href="https://bookdown.org/yihui/blogdown/">book</a> first. The book explains the idea of how blogdown package works and other very useful tips and tricks when trying to develop your own websites or blogs.</p>
+<p>Once the installation part sorted. One can either start a new site by <code>blogdown::new_site()</code> or the <a href="https://bookdown.org/yihui/blogdown/rstudio-ide.html">UI option</a> in Rstudio. A new site has a minimal folder structure as following:</p>
+<pre><code>├───content
+│   └───post
+├───resources
+│   └───_gen
+│       ├───assets
+│       └───images
+├───static
+└───themes
+    └───hugo-lithium
+        ├───archetypes
+        ├───exampleSite
+        │   ├───content
+        │   │   └───post
+        │   └───static
+        ├───layouts
+        │   ├───partials
+        │   └───_default
+        └───static
+            ├───css
+            ├───fonts
+            ├───images
+            └───js
+</code></pre><p>The key folders/directories are content, resources, static and themes. You would notice that <code>public</code> is missing if you have been through <a href="https://bookdown.org/yihui/blogdown/rstudio-ide.html">Yihui&rsquo;s book</a>. No <code>public</code> directory is a good start. Now, we can start the infrastructure.</p>
+<ol>
+<li>we can add a <code>.Rproj</code> to put this new site into a R project.</li>
+<li>Use the function <code>use_git</code> from the <code>usethis</code> R package to initial the git repo.</li>
+<li>First commit will be made to the local repo once we finish the interactive process in <code>use_git</code>.</li>
+<li>Go to the personal github account and create a new repo for hosing the GithubPage website. Github has <a href="https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site">a detailed tutorial</a> to do this.</li>
+<li>Copy the url once the repo has been created on Github.</li>
+<li>Shortcut key <code>Alt + Shift + T</code> to jump to the <code>Terminal console</code> in Rstudio.</li>
+<li>Use command <code>git submodule add https://github.com/******/*******.github.io.git public</code>. This is to add the hosting repo as a submodule to the parent repo. The command here also triggers the <code>cloning</code> which will download the materials if there is any.</li>
+<li><code>git submodule</code> can verify if the submodule has been added successfully. All good if the console shows something like</li>
+</ol>
+<pre><code>$ git submodule
+ 08d8c2cb943b395d9d3658dd45d5ef03409edc84 public (heads/master)
+</code></pre><ol start="9">
+<li>Now we can go to create new post or edit existing ones or customise the theme by using blogdown addins in Rstudio. Further details can be found in <a href="https://bookdown.org/yihui/blogdown/rstudio-ide.html">the book</a>.</li>
+<li>Every time when <code>blogdown::serve_site()</code> is triggered, the content in <code>public</code> directory will be updated. The stuff in the <code>public</code> directory is meant to be push back to the repo that created in step 4.</li>
+<li>Use a <code>shell</code> script to help the push back process is suggested by the <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">HUGO documentation</a>. A modified version below is used in this case since we are using <code>blogdown</code> to build the website. The script here assume that we are happy to just use the date and time as commit message.</li>
+</ol>
+<pre><code>#!/bin/sh
+
+# Go To Public folder
+cd public
+
+# Add changes to git.
+git add .
+
+git commit -m &quot;$msg&quot;
+
+# Push source and build repos.
+git push origin master  
+</code></pre><ol start="12">
+<li>Save the script in step 11 to the parent directory and named it as <code>deploy.sh</code>. Remember to call <code>chmod</code> to change the <code>deploy.sh</code> executable before call it like a normal command.</li>
+</ol>
+<p><strong>Optional steps to have parent repo pushed to github</strong></p>
+<ol start="13">
+<li>Our parent repo is still in the local environment. I found the <code>usethis::use_github()</code> is very easy to use for pushing local repo to github, although it requires a tiny bit configuration before we can use. Again, this is just personal preference. One can always add a remote to the local repo and push it via command line.</li>
+<li>A similar <code>*.sh</code> script can be used for pushing commits in parent repo as well.</li>
+<li>Now we have the parent repo and website children repo version controlled locally and backed up on github. We can do wherever and whenever to update and modify the content of the blog. 😁</li>
+</ol>
+<p>The current structure of this blog shows below:</p>
+<pre><code>├───.Rproj.user
+|\\\\\IGNORE IRRLAVENT DIRS\\\\\
+├───content
+│   └───post
+├───public
+│   ├───2020
+│   │   └───03
+│   │       ├───10
+│   │       │   └───apism-next-generation-custom-build-101
+│   │       ├───13
+│   │       │   └───multiply-apsimx-files-via-models-exe
+│   │       ├───14
+│   │       │   └───git-submodule-to-have-the-best-from-both-githubpage-and-hugo-theme
+│   ├───about
+│   ├───categories
+│   │   ├───apsimx
+│   │   ├───build
+│   │   └───draft
+│   ├───css
+│   ├───fonts
+│   ├───frank0434.github.io
+│   ├───images
+│   ├───js
+│   ├───post
+│   │   ├───2020-03-10-apism-next-generation-custom-build-101_files
+│   │   └───2020-03-13-multiply-apsimx-files-via-models-exe_files
+│   ├───rmarkdown-libs
+│   │   ├───elevate-section-attrs
+│   │   └───jquery
+├───static
+│   ├───post
+│   │   └───2020-03-13-multiply-apsimx-files-via-models-exe_files
+│   └───rmarkdown-libs
+│       ├───elevate-section-attrs
+│       └───jquery
+└───themes
+    └───hugo-lithium
+        ├───archetypes
+        ├───exampleSite
+        │   ├───content
+        │   │   └───post
+        │   └───static
+        ├───layouts
+        │   ├───partials
+        │   └───_default
+        └───static
+            ├───css
+            ├───fonts
+            ├───images
+            └───js
+  
+</code></pre><h1 id="collaborating-with-others">Collaborating with others</h1>
+<p>It seems to be not straight forward when it comes to collaboration.</p>
+<p>The <code>public</code> directory is already in the <code>git</code> index although it is empty when we pull down the <code>ApsimXLearn</code> repository to a new machine. This is problematic because we could not add the submodule nor update it.</p>
+<p>One way to work around is to remove the empty <code>public</code> directory first and clean the <code>git cached</code> as well. Then add the <code>github.io</code> repository to the submodule.</p>
+<p>A step by step will be:</p>
+<ol>
+<li>Clone the <code>ApsimXLearn</code> repository down to local.</li>
+</ol>
+<pre><code>$ git clone https://github.com/frank0434/ApsimXLearn.git
+</code></pre><ol start="2">
+<li>Remove the existing and empty <code>public</code> directory.</li>
+</ol>
+<pre><code>$ cd ApsimXLearn/
+$ rm -rf public/
+</code></pre><ol start="3">
+<li>Remove the git index as well.</li>
+</ol>
+<pre><code>$ git rm --cached public
+</code></pre><ol start="4">
+<li>Add the <code>frank0434.github.io</code> repository as submodule.</li>
+</ol>
+<pre><code>$ git submodule add https://github.com/frank0434/frank0434.github.io.git public
+</code></pre><ol start="5">
+<li>Ready to work on the new post. 😄</li>
+</ol>
+<h1 id="next-step">Next step</h1>
+<p>Next step might be to give up the stubbornness and host the blog by <a href="https://www.netlify.com/">Netlify</a> as recommended?.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          
+           <li>
+           <a href="https://bookdown.org/yihui/blogdown/" class="footer-links-kudos">Followed <img src="/images/blogdownlogo.png" alt="Img link to blogdown website" width="22" height="22"></a>
+          </li>
+          <li>
+           <a href="https://github.com/frank0434/ApsimXLearn" class="footer-links-kudos">Report issues or contribute?<img src="/images/github.png" alt="Img link to github repo" width="44" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
