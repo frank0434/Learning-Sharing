@@ -35,7 +35,7 @@ gained from life experience. So how can we incorporate our common sense into the
 system that makes computers understand the relationships between concepts and
 assist us to scale up our work efficiency? Ontology is the solution.
 
-Figure \@ref(fig: ER) shows a realisation of an exemplar ontology for harvesting
+Figure \@ref(fig:ER) shows a realisation of an exemplar ontology for harvesting
 fruits. Fruits are produced by trees. We often store apple fruits either in bins
 or on trays depending on subsequent data collections. Each box represents a
 concept (or an entity or a class or a variable or whatever we like to call) with
