@@ -4,17 +4,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2021-10-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2021-10-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2021/10/31/try-a-new-post/</loc>
-    <lastmod>2021-10-31T00:00:00+00:00</lastmod>
+    <lastmod>2021-10-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -24,6 +14,11 @@
   
   <url>
     <loc>/tags/opinion/</loc>
+    <lastmod>2021-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
     <lastmod>2021-10-27T00:00:00+00:00</lastmod>
   </url>
   
