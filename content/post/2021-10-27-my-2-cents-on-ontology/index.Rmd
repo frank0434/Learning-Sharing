@@ -21,28 +21,28 @@ we will benefit from them.
 
 # What is ontology
 
-The term may make people think that this is just another jargon that the data 
-science people use to make them sounds like the cool kids. It is not the case.
-ONTOLOGY is a term well defined many moons ago by World Wide Web Consortium (W3C).
-In short, the word ONTOLOGY in the information science domain shares similar 
-meaning as the word VOCABULARY. But with more formalisation in it to strictly 
-define relationships between concepts. Therefore, less chance to form ambiguities
-which are the main difficulties for computers to help us integrate and merge data
-without much human input. For example, we know that an apple is from an apple 
-tree, and it is probably placed in a bin or tray when the apple is picked. But
-computers have no common knowledge to understand information that we gained from 
-life experience. So how can we incorporate our common sense into the system that 
-make computers understand the relationships between concepts and assist us to 
-scale up our work efficiency? Ontology is the solution. 
+The term may make people think that this is just another jargon from the data
+science people and make them sounds like cool kids. It is not the case. ONTOLOGY
+is a term well defined many moons ago by World Wide Web Consortium (W3C). In
+short, the word ONTOLOGY in the information science domain shares a similar
+meaning as the word VOCABULARY. But with more formalisation in it to strictly
+define relationships between concepts. Therefore, less chance to form
+ambiguities which are the main difficulties for computers to help us integrate
+and merge data without much human input. For example, we know that an apple is
+from an apple tree, and it is probably placed in a bin or tray when the apple is
+picked. But computers have no common knowledge to understand information that we
+gained from life experience. So how can we incorporate our common sense into the
+system that makes computers understand the relationships between concepts and
+assist us to scale up our work efficiency? Ontology is the solution.
 
-Figure \@ref(fig:ER) shows a realisation of an exemplar ontology for harvesting
-fruits. I defined that fruits are produced by trees, and we 
-often store apple fruits either in bins or on trays depending on subsequent 
-data collections. Each box represents a concept (or an entity or a class or a 
-variable or whatever we like to call) with detailed descriptions (Attributes/Keys/Units etc) 
-and relationships with other boxes (Produce, are in/on). By having this simple 
-but exactly defined representation diagram, we can understand the whole picture
-and computers can use the information. 
+Figure \@ref(fig: ER) shows a realisation of an exemplar ontology for harvesting
+fruits. Fruits are produced by trees. We often store apple fruits either in bins
+or on trays depending on subsequent data collections. Each box represents a
+concept (or an entity or a class or a variable or whatever we like to call) with
+detailed descriptions (Attributes/Keys/Units etc) and relationships with other
+boxes (Produce, are in/on). By having this simple but exactly defined
+representation diagram, we can understand the whole picture. Computers can use
+the information as well.
 
 ```{r ER, fig.cap="An exemplar of entity relationship model to represent a realisation of a simple ontology for fruits harvesting process.", echo=FALSE, fig.align="center", fig.width=10, fig.height=10, out.width="50%"}
 knitr::include_graphics("images/ERexample.png", dpi = 300)
@@ -50,55 +50,54 @@ knitr::include_graphics("images/ERexample.png", dpi = 300)
 
 # Why do we need it 
 
-The entity relationship (ER) model reveals part of the why already. This is 
-because that we will need to clarify all the doubts and make the ontology as 
-exact as possible before we can generate a ER model to represent the ontology
-statically. We will standardise our thinking, sampling protocols and all other 
-related matters when we define the ontologies. Let's build on the example in 
+The entity-relationship (ER) model reveals part of the why already. This is
+because that we will need to clarify all the doubts and make the ontology as
+exact as possible before we can generate an ER model to represent the ontology
+statically. We will standardise our thinking, sampling protocols and all other
+related matters when we define the ontologies. Let's build on the example in
 Figure \@ref(fig:ER). Now we have two teams, A and B, that are in two different
-locations and want to measure fruits weight. Team A choose to use weighing scale 
-and labelled fruits weigh as FW with a unit kilogram. In contrast, Team B has a 
-luxury grader that can automatically count and weigh fruits. Team B used "fruits
-weight" as the variable name with the grader default unit of gram. There is no
-problem about the choices the two team made given the fact that they have no idea 
-that their data would be merged together at some point to investigate spatial 
-variations of fruits weight in these two locations. We have to invest extra times
-and resources to clarify the history of two data sets collected by Team A and B.
-The extra time and resources would be avoidable if we bring two teams together 
-and agree on one set of protocols to conduct the data collection process. 
+locations and want to measure fruits weight. Team A choose to use a weighing
+scale and labelled fruits weigh as FW with a unit kilogram. In contrast, Team B
+has a luxury grader that can automatically count and weigh fruits. Team B used
+"fruits weight" as the variable name with the grader default unit of a gram.
+There is no problem with the choices the two teams made given the fact that they
+have no idea that their data would be merged at some point to investigate
+spatial variations of fruits weight in these two locations. We have to invest
+extra time and resources to clarify the history of two data sets collected by
+Team A and B. The extra time and resources would be avoidable if we bring two
+teams together and agree on one set of protocols to conduct the data collection
+process.
 
-Someone may argue that the problem could be easily solved by a grand **EXCEL** 
+Someone may argue that the problem could be easily solved by a grand **EXCEL**
 metadata sheet and **VLOOKUP** tables. In certain settings, Excel is probably a
-perfect solution for the task. However, this window-centered solution will be a
-nightmare when we want to capture perennial production systems with multi-year, 
--locations and -data types (genotype, phenotype, soil, climate, pest and disease, 
-pollination, orchard management, consumer insights etc). Ontology seems the only
-viable solution that will warrant our data to meet the FAIR principles. 
-
-Data collection is expensive. Why won't we want to do a bit more than status quo
-to make our valuable assets last longer and surely reusable? 
-
+perfect solution for the task. However, this Windows-centred solution will be a
+nightmare when we want to capture perennial production systems with multi-year,
+-locations and -data types (genotype, phenotype, soil, climate, pest and
+disease, pollination, orchard management, consumer insights etc). Ontology seems
+the only viable solution that will warrant our data to meet the FAIR principles.
+Data collection is expensive. Why won't we want to do a bit more than the status
+quo to make our valuable assets last longer and surely reusable?
 
 # How to get it 
 
-An iterative and collaborative approach will probably be the most efficient 
+An iterative and collaborative approach will probably be the most efficient
 approach is probably to build upon existing ontologies. Figure \@ref(fig:WoW)
-demonstrates a flowchart of ontology development. First thing first, we need a 
-team that has faith in ontologies to solve our data problems. Then, the team 
+demonstrates a flowchart of ontology development. First thing first, we need a
+team that has faith in ontologies to solve our data problems. Then, the team
 gets to choose a domain to work on. Naturally, the team will search and examine
-what are already there on the web, and consolidated information in hands to 
-engage with key stakeholders. The stakeholders engagement step is the most critical
-and difficult one. Therefore, extra care might be needed to bring all stakeholders
-on board, especially the data collection team. The data collection teams usually 
-have the in-depth knowledge about the collection processes but often not necessary
-expose to the whole life cycle of the data they have collected. A set of agreed
-raw ontologies will be produced by the joint efforts of all stakeholders. The 
+what is already there on the web, and consolidate information in hand to engage
+with key stakeholders. The stakeholders' engagement step is the most critical
+and difficult one. Therefore, extra care might be needed to bring all
+stakeholders on board, especially the data collection team. The data collection
+teams usually have in-depth knowledge about the collection processes but are
+often not necessary expose to the whole life cycle of the data. A set of agreed
+raw ontologies will be produced by the joint efforts of all stakeholders. The
 second last step is data annotation, which means we can actually apply the raw
 ontologies to standardise our data (either historical or new). The last step is
-only limited by our imagination. We can develop a whole graphic knowledge database
-from the raw ontologies or simply formatted the ontologies with [Web Ontology 
-Language (OWL)](https://www.w3.org/TR/owl2-overview/). Then we can move onto 
-another domain. 
+only limited by our imagination. We can develop a whole graphic knowledge
+database from the raw ontologies or simply format the ontologies with [Web
+Ontology Language (OWL)](https://www.w3.org/TR/owl2-overview/). Then we can move
+on to another domain.
 
 ```{r WoW, fig.cap="An iteractive approch to get the ontologies.", echo=FALSE,fig.align="center", fig.height=10, fig.width=5, out.width="75%"}
 knitr::include_graphics("WayofWorking copy.png", dpi = 300)
@@ -108,4 +107,8 @@ knitr::include_graphics("WayofWorking copy.png", dpi = 300)
 # More information 
 
 [Youtube videos](https://www.youtube.com/watch?v=Y8cnZFuI_k0)
+
 [obofoundry](http://www.obofoundry.org/)
+
+[Janssen et al 2009](https://www.sciencedirect.com/science/article/pii/S1364815209001054?via%3Dihub)
+
