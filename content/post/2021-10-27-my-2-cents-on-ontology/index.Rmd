@@ -44,8 +44,8 @@ and relationships with other boxes (Produce, are in/on). By having this simple
 but exactly defined representation diagram, we can understand the whole picture
 and computers can use the information. 
 
-```{r ER, fig.cap="An exemplar of entity relationship model to represent a realisation of a simple ontology for fruits harvesting process.", echo=FALSE}
-knitr::include_graphics("images/ERexample.png")
+```{r ER, fig.cap="An exemplar of entity relationship model to represent a realisation of a simple ontology for fruits harvesting process.", echo=FALSE, fig.align="center", fig.width=10, fig.height=10, out.width="50%"}
+knitr::include_graphics("images/ERexample.png", dpi = 300)
 ```
 
 # Why do we need it 
@@ -100,9 +100,8 @@ from the raw ontologies or simply formatted the ontologies with [Web Ontology
 Language (OWL)](https://www.w3.org/TR/owl2-overview/). Then we can move onto 
 another domain. 
 
-
-```{r WoW, fig.cap="An iteractive approch to get the ontologies.", echo=FALSE}
-knitr::include_graphics("WayofWorking copy.png")
+```{r WoW, fig.cap="An iteractive approch to get the ontologies.", echo=FALSE,fig.align="center", fig.height=10, fig.width=5, out.width="75%"}
+knitr::include_graphics("WayofWorking copy.png", dpi = 300)
 ```
 
 
