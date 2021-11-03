@@ -81,6 +81,32 @@ to make our valuable assets last longer and surely reusable?
 
 # How to get it 
 
-The most efficient approach is probably to build upon existing ontologies. 
-Key stakeholders, researchers, data collection team, 
+An iterative and collaborative approach will probably be the most efficient 
+approach is probably to build upon existing ontologies. Figure \@ref(fig:WoW)
+demonstrates a flowchart of ontology development. First thing first, we need a 
+team that has faith in ontologies to solve our data problems. Then, the team 
+gets to choose a domain to work on. Naturally, the team will search and examine
+what are already there on the web, and consolidated information in hands to 
+engage with key stakeholders. The stakeholders engagement step is the most critical
+and difficult one. Therefore, extra care might be needed to bring all stakeholders
+on board, especially the data collection team. The data collection teams usually 
+have the in-depth knowledge about the collection processes but often not necessary
+expose to the whole life cycle of the data they have collected. A set of agreed
+raw ontologies will be produced by the joint efforts of all stakeholders. The 
+second last step is data annotation, which means we can actually apply the raw
+ontologies to standardise our data (either historical or new). The last step is
+only limited by our imagination. We can develop a whole graphic knowledge database
+from the raw ontologies or simply formatted the ontologies with [Web Ontology 
+Language (OWL)](https://www.w3.org/TR/owl2-overview/). Then we can move onto 
+another domain. 
 
+
+```{r WoW, fig.cap="An iteractive approch to get the ontologies.", echo=FALSE}
+knitr::include_graphics("WayofWorking copy.png")
+```
+
+
+# More information 
+
+[Youtube videos](https://www.youtube.com/watch?v=Y8cnZFuI_k0)
+[obofoundry](http://www.obofoundry.org/)

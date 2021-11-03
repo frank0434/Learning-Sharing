@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT on A documentation website</title>
+    <link>/categories/iot/</link>
+    <description>Recent content in IoT on A documentation website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Nov 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/iot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Telegraf-influxDB-Grafana stack for IoT stuff in docker</title>
+      <link>/2020/11/10/telegraf-influxdb-grafana-stack-for-iot-stuff/</link>
+      <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/11/10/telegraf-influxdb-grafana-stack-for-iot-stuff/</guid>
+      <description>TL;TR
+Explore the platform - Telegraf, InfluxDB and Grafana (TIG).
+ Advantages:
+i. True IoT setup. Data ingestion happens in millisenconds via telegraf. Telegraf can be added as a windowns service, which means restart computer won&amp;rsquo;t destroy the workflow. ii. Time series database, super efficient.
+iii. Full interactive dashboard with drag and drop buidling mechnism. Disadvantages:
+i. Telegraf configuration.
+ii. InfluxDB query lanuage.  Docker-compose files for a simple uptodate InfluxDB + Grafana stack + Telegraf Get the stack (only once):</description>
+    </item>
+    
+  </channel>
+</rss>

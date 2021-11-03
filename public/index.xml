@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A documentation website</title>
+    <link>/</link>
+    <description>Recent content on A documentation website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Oct 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My 2 cents on ONTOLOGY</title>
+      <link>/2021/10/27/my-2-cents-on-ontology/</link>
+      <pubDate>Wed, 27 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/10/27/my-2-cents-on-ontology/</guid>
+      <description>What is ontologyWhy do we need itHow to get itMore informationI believe that we have to standardise and integrate our data now to understandthe ever-growing complexity of science projects. The application of ontologieshad been trialed many times in other science domains, such as environmentalmodelling and ecology. The early we start to build our ontologies, the soonerwe will benefit from them.</description>
+    </item>
+    
+    <item>
+      <title>Telegraf-influxDB-Grafana stack for IoT stuff in docker</title>
+      <link>/2020/11/10/telegraf-influxdb-grafana-stack-for-iot-stuff/</link>
+      <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/11/10/telegraf-influxdb-grafana-stack-for-iot-stuff/</guid>
+      <description>TL;TR
+Explore the platform - Telegraf, InfluxDB and Grafana (TIG).
+ Advantages:
+i. True IoT setup. Data ingestion happens in millisenconds via telegraf. Telegraf can be added as a windowns service, which means restart computer won&amp;rsquo;t destroy the workflow. ii. Time series database, super efficient.
+iii. Full interactive dashboard with drag and drop buidling mechnism. Disadvantages:
+i. Telegraf configuration.
+ii. InfluxDB query lanuage.  Docker-compose files for a simple uptodate InfluxDB + Grafana stack + Telegraf Get the stack (only once):</description>
+    </item>
+    
+    <item>
+      <title>Implenment physiological process in apsimx model</title>
+      <link>/2020/07/01/implenment-physiological-process-in-apsimx-model/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/07/01/implenment-physiological-process-in-apsimx-model/</guid>
+      <description>Aim Water stress has a significant effect on leaf area expansion rate. To implenment the effects, one needs to modify the model or use manager script to update the model states.
+Modify the plant model itself   The process of the effect. Water stress hit the leaf and reduce the rate of expansion. This could be quantified by calculating the ratio of water demand and supply.
+  Which stage of the crop gets the effect most and first?</description>
+    </item>
+    
+    <item>
+      <title>Errors and solutions in shiny application </title>
+      <link>/2020/06/08/errors-and-solutions-in-shiny-application/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/06/08/errors-and-solutions-in-shiny-application/</guid>
+      <description>Error in fBody[[i]] : subscript out of bounds caused by invalid breakpoints in debug mode. https://stackoverflow.com/a/34803480/7717807</description>
+    </item>
+    
+    <item>
+      <title>Deploy shinyapp and postgreSQL db via docker locally</title>
+      <link>/2020/06/04/deploy-shinyapp-and-postgresql-db-via-docker-locally/</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/06/04/deploy-shinyapp-and-postgresql-db-via-docker-locally/</guid>
+      <description>The easiest way is probably using multiple db images.
+version: &#39;3&#39;services:app:build: .image: AwesomeShinyApprestart: unless-stoppeduser: shinyports:- &amp;quot;8000:3838&amp;quot;depends_on:- db1- db2db1:image: postgres:10-alpinerestart: unless-stoppedenvironment:POSTGRES_PASSWORD: magicwordvolumes:- &amp;quot;./P001.sql.gz:/docker-entrypoint-initdb.d/P001.sql.gz:z&amp;quot;db2:image: postgres:10-alpinerestart: unless-stoppedenvironment:POSTGRES_PASSWORD: magicwordvolumes:- &amp;quot;./P002.sql.gz:/docker-entrypoint-initdb.d/P002.sql.gz:z&amp;quot;Found orphan containers docker-compose takes the name of the directory it is in as the default project name.
+You can set a different project name by using -p or &amp;ndash;project-name.</description>
+    </item>
+    
+    <item>
+      <title>Using Apsim-Slurp model to estimate kl</title>
+      <link>/2020/06/02/using-apsim-slurp-model-to-estimate-kl/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/06/02/using-apsim-slurp-model-to-estimate-kl/</guid>
+      <description>What is slurp The official introduction suggests that the slurp model in apsim framework can do two things:
+ Users can simulate water uptake when users define the canopy of a plant. Users can simulate canopy development when users define the water supply in the soil.  Why slurp Water extraction
+How slurp Two values are needed:
+ $R/R_0$ to calculate the leaf area index and the height extincation coefcient. to calculainstte leaf area  </description>
+    </item>
+    
+    <item>
+      <title>Working example of ApsimX `Edit` feature</title>
+      <link>/2020/05/23/working-example-of-apsimx-edit-feature/</link>
+      <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/05/23/working-example-of-apsimx-edit-feature/</guid>
+      <description>In the previous post about using ApsimX built-in feature to do multiplication of simulation files, the Edit flag was briefly discussed with basic instruction. This post explores different approaches to integrate the feature into a workflow.
+A simple workflow  [Load prepared data](# Load prepared soil parameters). For example, a set of soil parameters consists of DUL, LL and initial soil water for each layer. [Set constants](# Set directory structure in an R environment).</description>
+    </item>
+    
+    <item>
+      <title>Common Errors and solutions </title>
+      <link>/2020/05/04/common-errors-and-solutions/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/05/04/common-errors-and-solutions/</guid>
+      <description>This page is the FAQ which contains random errors and potential solutions of ApsimX
+Invalid report variables Error in report Output: Invalid report variables found:RUEshootPossible Cause: 0 or other numeric values divided by 0.
+Solution: Add a small number into the denominator. [ExtraVariables].Script.AverageInterceptedRadiation + 0.00000001
+Radiation Units Contributed by Edmar
+Note: Units in the paper were in MJ of PAR &amp;hellip; APSIM works in global radiation so we can multiply it by 2x</description>
+    </item>
+    
+    <item>
+      <title>Preparing data for Apsim Classic</title>
+      <link>/2020/04/18/preparing-data-for-apsim-classic/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/18/preparing-data-for-apsim-classic/</guid>
+      <description>Contributed By Stephanie Langer
+Key comments The data should be organised in a way Apsim can read it. The screenshots below show examples for different templates. First some general comments:
+ Data can be stored one file or separated, even csv is fine; Some optional comments in the top (comments start with a “!”); A row of headers, these should be something that make clear what they are (not too long and they need to be unique), if the table gets too big, we might make different files; A row with units, between brackets (each cell must have something, if not unit is available then use empty brackets); First column with date (there can be gaps, but no repetitions); Missing data should be marked (using “?</description>
+    </item>
+    
+    <item>
+      <title>Install R package from private repository via `token`</title>
+      <link>/2020/04/07/install-r-package-from-private-repository-via-key/</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/07/install-r-package-from-private-repository-via-key/</guid>
+      <description>Aim To install a R package that is in a private repository on GitHub.
+Prerequisite  A Github account. The account has been authorised to access the private repository where the package is located. R and Rstudio. 😂 R package devtools. R package usethis.  Step by Step Using a personal access token is probably the easiest way to achieve the aim, although it might not be the safest. 😂</description>
+    </item>
+    
+    <item>
+      <title>Manual validation of ApsimNG-Lucerne </title>
+      <link>/2020/04/05/manual-validation-of-apsimng-lucerne/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/05/manual-validation-of-apsimng-lucerne/</guid>
+      <description>The case ApsimNG is a great tool for climate change studies once we have a comprehensive plant model with realibale climate data and detailted soil propterties. However, it will be waste of time if the simulation results make no biological sense. The validation of a model is a key step before we ran the massive simulations for climate change scenarios.
+This post is a simplified example of manually validating the ApsimNG-Lucerne model to ensure the model is doing what we expected.</description>
+    </item>
+    
+    <item>
+      <title>Balance is the key to validate ApsimX simulations</title>
+      <link>/2020/03/28/blance-is-the-key-to-validate-your-simulation/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/28/blance-is-the-key-to-validate-your-simulation/</guid>
+      <description>Introduction It is critical to inspect the simulation result from a Apsim model so that we are confidence to say the model does what is expected. For a beginner, it might feel hopeless when we stare at the UI with hundreds of parameters can be modified and output. Despite the complicity of Apsim, the entire idea of simulation checking is about biologically meaningful. We could apply some simple logic to do the inspection of the agricultural system - a system that should be balanced.</description>
+    </item>
+    
+    <item>
+      <title>Found your way home - R default library in windows</title>
+      <link>/2020/03/27/found-your-way-home-r-default-library-in-windows/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/27/found-your-way-home-r-default-library-in-windows/</guid>
+      <description>Reason about this post Many R learner (including myself) probably came across the default R library issues in windows system, especially when you are using a company laptop/PC. There are lots of discussion about changing the default directories in R on StackOverFlow and other websites. However, I found using Environment variables seems to be the easiest way to go.
+Change the default library via environment variables  Windows key to trigger the start menu.</description>
+    </item>
+    
+    <item>
+      <title>Git submodule to use Hugo theme on githubPage</title>
+      <link>/2020/03/14/git-submodule-to-have-the-best-from-both-githubpage-and-hugo-theme/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/14/git-submodule-to-have-the-best-from-both-githubpage-and-hugo-theme/</guid>
+      <description>Driver Originally, I was keen to just use the githubPage approach to do this documentation blog because it feels easy. Then, the Yihui&amp;rsquo;s book Blogdown introduces this amazing HUGO themes. I became greed and want to have the best of both worlds although I realised that githubPage is not the number one recommendation for deploying the website when half way through the book. However, the stubbornness kicked in and the desire of using githubPage with HUGO themes got the vote.</description>
+    </item>
+    
+    <item>
+      <title>Multiply ApsimX files via Models.exe</title>
+      <link>/2020/03/13/multiply-apsimx-files-via-models-exe/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/13/multiply-apsimx-files-via-models-exe/</guid>
+      <description>Motivation Although the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large .apsimx file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small .apsimx files that require less CPU time are desirable so that the HPC can run small jobs parallel within a relative short time. A various solutions have been developed to cater the need of multiplying small .</description>
+    </item>
+    
+    <item>
+      <title> Apism Next Generation Custom build 101</title>
+      <link>/2020/03/11/apism-next-generation-custom-build-101/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/11/apism-next-generation-custom-build-101/</guid>
+      <description>Ingredients  Visual Studio is essential. Git has been built into visual studio IDE from 2013 update 1. So not necessary to install git independently. But it is necessary to have some basic understanding of git. Github account to clone the repository to local machines. Github is a great platform that host all the repository for many projects. Happy Git and Github for the useR maybe a good starting point to learn how to use git and github, although it is a bit R-centered 😆.</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>/about/</link>
+      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
+      
+      <guid>/about/</guid>
+      <description>My name is Jian Liu, also known as Frank. I work for Plant and Food Research as a Data Scientist. I am also doing my master thesis at Lincoln University as a part-time student. The research topic I proposed covers three different subjects: plant, soil and data science. After graduated from an agricultural degree, I picked up data science skills through the working experience and grow my passion in the applications of data science on investigating the interaction between plants and environments.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apsimx on A documentation website</title>
+    <link>/categories/apsimx/</link>
+    <description>Recent content in apsimx on A documentation website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/apsimx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Implenment physiological process in apsimx model</title>
+      <link>/2020/07/01/implenment-physiological-process-in-apsimx-model/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/07/01/implenment-physiological-process-in-apsimx-model/</guid>
+      <description>Aim Water stress has a significant effect on leaf area expansion rate. To implenment the effects, one needs to modify the model or use manager script to update the model states.
+Modify the plant model itself   The process of the effect. Water stress hit the leaf and reduce the rate of expansion. This could be quantified by calculating the ratio of water demand and supply.
+  Which stage of the crop gets the effect most and first?</description>
+    </item>
+    
+    <item>
+      <title>Using Apsim-Slurp model to estimate kl</title>
+      <link>/2020/06/02/using-apsim-slurp-model-to-estimate-kl/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/06/02/using-apsim-slurp-model-to-estimate-kl/</guid>
+      <description>What is slurp The official introduction suggests that the slurp model in apsim framework can do two things:
+ Users can simulate water uptake when users define the canopy of a plant. Users can simulate canopy development when users define the water supply in the soil.  Why slurp Water extraction
+How slurp Two values are needed:
+ $R/R_0$ to calculate the leaf area index and the height extincation coefcient. to calculainstte leaf area  </description>
+    </item>
+    
+    <item>
+      <title>Working example of ApsimX `Edit` feature</title>
+      <link>/2020/05/23/working-example-of-apsimx-edit-feature/</link>
+      <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/05/23/working-example-of-apsimx-edit-feature/</guid>
+      <description>In the previous post about using ApsimX built-in feature to do multiplication of simulation files, the Edit flag was briefly discussed with basic instruction. This post explores different approaches to integrate the feature into a workflow.
+A simple workflow  [Load prepared data](# Load prepared soil parameters). For example, a set of soil parameters consists of DUL, LL and initial soil water for each layer. [Set constants](# Set directory structure in an R environment).</description>
+    </item>
+    
+    <item>
+      <title>Common Errors and solutions </title>
+      <link>/2020/05/04/common-errors-and-solutions/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/05/04/common-errors-and-solutions/</guid>
+      <description>This page is the FAQ which contains random errors and potential solutions of ApsimX
+Invalid report variables Error in report Output: Invalid report variables found:RUEshootPossible Cause: 0 or other numeric values divided by 0.
+Solution: Add a small number into the denominator. [ExtraVariables].Script.AverageInterceptedRadiation + 0.00000001
+Radiation Units Contributed by Edmar
+Note: Units in the paper were in MJ of PAR &amp;hellip; APSIM works in global radiation so we can multiply it by 2x</description>
+    </item>
+    
+    <item>
+      <title>Manual validation of ApsimNG-Lucerne </title>
+      <link>/2020/04/05/manual-validation-of-apsimng-lucerne/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/04/05/manual-validation-of-apsimng-lucerne/</guid>
+      <description>The case ApsimNG is a great tool for climate change studies once we have a comprehensive plant model with realibale climate data and detailted soil propterties. However, it will be waste of time if the simulation results make no biological sense. The validation of a model is a key step before we ran the massive simulations for climate change scenarios.
+This post is a simplified example of manually validating the ApsimNG-Lucerne model to ensure the model is doing what we expected.</description>
+    </item>
+    
+    <item>
+      <title>Balance is the key to validate ApsimX simulations</title>
+      <link>/2020/03/28/blance-is-the-key-to-validate-your-simulation/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/28/blance-is-the-key-to-validate-your-simulation/</guid>
+      <description>Introduction It is critical to inspect the simulation result from a Apsim model so that we are confidence to say the model does what is expected. For a beginner, it might feel hopeless when we stare at the UI with hundreds of parameters can be modified and output. Despite the complicity of Apsim, the entire idea of simulation checking is about biologically meaningful. We could apply some simple logic to do the inspection of the agricultural system - a system that should be balanced.</description>
+    </item>
+    
+    <item>
+      <title>Multiply ApsimX files via Models.exe</title>
+      <link>/2020/03/13/multiply-apsimx-files-via-models-exe/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/13/multiply-apsimx-files-via-models-exe/</guid>
+      <description>Motivation Although the factorial feature in Apsim Next Generation(ApsimNG) can generate multiple simulations files on the fly, it is very CPU demanding to run a large .apsimx file with many simulations in it. Particular in the High Performance Cluster (HPC) environment, small .apsimx files that require less CPU time are desirable so that the HPC can run small jobs parallel within a relative short time. A various solutions have been developed to cater the need of multiplying small .</description>
+    </item>
+    
+    <item>
+      <title> Apism Next Generation Custom build 101</title>
+      <link>/2020/03/11/apism-next-generation-custom-build-101/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/11/apism-next-generation-custom-build-101/</guid>
+      <description>Ingredients  Visual Studio is essential. Git has been built into visual studio IDE from 2013 update 1. So not necessary to install git independently. But it is necessary to have some basic understanding of git. Github account to clone the repository to local machines. Github is a great platform that host all the repository for many projects. Happy Git and Github for the useR maybe a good starting point to learn how to use git and github, although it is a bit R-centered 😆.</description>
+    </item>
+    
+  </channel>
+</rss>

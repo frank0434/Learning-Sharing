@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Website theme on A documentation website</title>
+    <link>/categories/website-theme/</link>
+    <description>Recent content in Website theme on A documentation website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/website-theme/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git submodule to use Hugo theme on githubPage</title>
+      <link>/2020/03/14/git-submodule-to-have-the-best-from-both-githubpage-and-hugo-theme/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/14/git-submodule-to-have-the-best-from-both-githubpage-and-hugo-theme/</guid>
+      <description>Driver Originally, I was keen to just use the githubPage approach to do this documentation blog because it feels easy. Then, the Yihui&amp;rsquo;s book Blogdown introduces this amazing HUGO themes. I became greed and want to have the best of both worlds although I realised that githubPage is not the number one recommendation for deploying the website when half way through the book. However, the stubbornness kicked in and the desire of using githubPage with HUGO themes got the vote.</description>
+    </item>
+    
+  </channel>
+</rss>
