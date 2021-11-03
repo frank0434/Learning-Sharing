@@ -30,6 +30,7 @@ enableEmoji = true
 [params]
     author = "Jian (aka Frank) Liu"
     description = "A website built through Hugo and blogdown."
+    dateFormat = "2006-01-02"
 
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.12.0"
