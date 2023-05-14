@@ -4,7 +4,7 @@ title: About me
 emoji: true
 ---
 
-My name is Jian Liu, also known as Frank. I work for [Plant and Food Research](https://www.plantandfood.co.nz/) as a Data Scientist. I am also doing my master thesis at Lincoln University as a part-time student. The research topic I proposed covers three different subjects: plant, soil and data science. After graduated from an agricultural degree, I picked up data science skills through the working experience and grow my passion in the applications of data science on investigating the interaction between plants and environments.
+My name is Jian Liu, also known as Frank. I am currently doing my PhD in Wageningen University in the Netherlands. The topic is about to understand and model how potatoes suffer from heatwaves and drought. Previously I worked at [Plant and Food Research](https://www.plantandfood.co.nz/) as a Data Scientist. I am also doing my master thesis at Lincoln University as a part-time student. The research topic I proposed covers three different subjects: plant, soil and data science. After graduated from an agricultural degree, I picked up data science skills through the working experience and grow my passion in the applications of data science on investigating the interaction between plants and environments.
 
 This blog was created as a documentation site for the master study. Contents may range from tips and tricks in programming tools like R and Python to errors and solutions for specific modelling framework such as [APSIM Next Generation](https://apsimnextgeneration.netlify.com/). Some random thoughts might also come along every now and then. :wink:
 
